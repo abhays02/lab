@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>barren plateaus: where the training signal goes</title>
+<style>
+  :root{
+    --bg:#0d0d0d; --panel:#1a1a19; --line:#2c2c2a; --ink:#ffffff;
+    --dim:#c3c2b7; --muted:#898781; --local:#3987e5; --global:#d95926;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    width:1200px;height:630px;overflow:hidden;}
+  .wrap{width:1200px;height:630px;padding:44px 52px;display:flex;flex-direction:column;}
+  .top{display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:28px;
+    white-space:nowrap;}
+  h1{font-size:23px;font-weight:600;letter-spacing:.01em;margin:0;color:var(--ink);}
+  .tag{font-size:14px;color:var(--muted);flex:none;margin-left:24px;}
+  .body{display:grid;grid-template-columns:360px 1fr;gap:40px;flex:1;}
+  .left{display:flex;flex-direction:column;justify-content:center;}
+  .kicker{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px;}
+  .big{font-size:64px;font-weight:700;line-height:1;color:var(--global);}
+  .big small{display:block;font-size:18px;font-weight:500;color:var(--dim);margin-top:10px;line-height:1.4;}
+  .sub{margin-top:28px;font-size:15px;color:var(--dim);line-height:1.6;}
+  .sub b{color:var(--ink);}
+  .right{display:flex;flex-direction:column;justify-content:center;}
+  svg{width:100%;height:auto;display:block;}
+  .axis{stroke:var(--line);stroke-width:1.4;}
+  .grid{stroke:var(--line);stroke-width:.8;stroke-dasharray:3 4;}
+  .curve{fill:none;stroke-width:3.2;}
+  .curve.local{stroke:var(--local);}
+  .curve.global{stroke:var(--global);}
+  .dot{r:5;}
+  .dot.local{fill:var(--local);}
+  .dot.global{fill:var(--global);}
+  .lbl{font-size:13px;fill:var(--muted);font-family:ui-monospace,monospace;}
+  .lbl.end-local{fill:var(--local);font-weight:700;font-size:15px;}
+  .lbl.end-global{fill:var(--global);font-weight:700;font-size:15px;}
+  .legend{display:flex;gap:28px;font-size:14px;color:var(--dim);margin-top:16px;}
+  .legend span{display:inline-flex;align-items:center;gap:8px;}
+  .sw{width:16px;height:3px;display:inline-block;}
+  .sw.local{background:var(--local);}
+  .sw.global{background:var(--global);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>barren plateaus: where the signal goes</h1>
+    <span class="tag">real simulation, 150 circuits per qubit count</span>
+  </div>
+  <div class="body">
+    <div class="left">
+      <div class="kicker">gradient variance, 2 &rarr; 12 qubits</div>
+      <div class="big">965&times;<small>collapse in the global cost function's gradient signal &mdash; same circuit, same depth, only the qubit count changed</small></div>
+      <div class="sub">The local cost function barely moves: <b>0.113 &rarr; 0.033</b>.<br>The global one goes quiet: <b>0.098 &rarr; 0.0001</b>.</div>
+    </div>
+    <div class="right">
+      <svg viewBox="0 0 430 230" preserveAspectRatio="xMidYMid meet">
+        <line class="grid" x1="34" y1="40" x2="355" y2="40"></line>
+        <line class="grid" x1="34" y1="90" x2="355" y2="90"></line>
+        <line class="grid" x1="34" y1="140" x2="355" y2="140"></line>
+        <line class="grid" x1="34" y1="190" x2="355" y2="190"></line>
+        <line class="axis" x1="34" y1="10" x2="34" y2="190"></line>
+        <line class="axis" x1="34" y1="190" x2="355" y2="190"></line>
+        <text class="lbl" x="2" y="43">1e-1</text>
+        <text class="lbl" x="2" y="93">1e-2</text>
+        <text class="lbl" x="2" y="143">1e-3</text>
+        <text class="lbl" x="2" y="193">1e-4</text>
+        <text class="lbl" x="34" y="208">2</text>
+        <text class="lbl" x="355" y="208" text-anchor="end">12 qubits</text>
+        <polyline class="curve local" points="34.0,37.4 98.4,49.0 162.8,57.3 227.2,61.7 291.6,64.0 355.0,64.4"></polyline>
+        <polyline class="curve global" points="34.0,40.5 98.4,66.3 162.8,99.5 227.2,127.1 291.6,154.1 355.0,189.7"></polyline>
+        <circle class="dot local" cx="34.0" cy="37.4"></circle>
+        <circle class="dot local" cx="98.4" cy="49.0"></circle>
+        <circle class="dot local" cx="162.8" cy="57.3"></circle>
+        <circle class="dot local" cx="227.2" cy="61.7"></circle>
+        <circle class="dot local" cx="291.6" cy="64.0"></circle>
+        <circle class="dot local" cx="355.0" cy="64.4"></circle>
+        <circle class="dot global" cx="34.0" cy="40.5"></circle>
+        <circle class="dot global" cx="98.4" cy="66.3"></circle>
+        <circle class="dot global" cx="162.8" cy="99.5"></circle>
+        <circle class="dot global" cx="227.2" cy="127.1"></circle>
+        <circle class="dot global" cx="291.6" cy="154.1"></circle>
+        <circle class="dot global" cx="355.0" cy="189.7"></circle>
+        <text class="lbl end-local" x="362" y="60">0.033</text>
+        <text class="lbl end-global" x="362" y="187">0.0001</text>
+      </svg>
+      <div class="legend">
+        <span><i class="sw local"></i>local cost, &lt;Z&#8320;&gt;</span>
+        <span><i class="sw global"></i>global cost, &lt;Z&#8320;Z&#8321;&hellip;Z&#8345;&#8331;&#8321;&gt;</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
