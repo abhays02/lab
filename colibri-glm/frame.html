@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; }
+  .poster {
+    width: 1200px;
+    height: 630px;
+    background: #16181c;
+    position: relative;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #f2f1ec;
+    overflow: hidden;
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  .kicker {
+    position: absolute; left: 480px; top: 46px;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.16em;
+    color: #7b7f89; text-transform: uppercase;
+  }
+  .headline-row {
+    position: absolute; left: 480px; top: 78px;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .headline { font-size: 168px; font-weight: 800; color: #f2f1ec; letter-spacing: -0.03em; line-height: 1; }
+  .headline-unit { font-size: 26px; font-weight: 600; color: #9a9da5; }
+  .sub-copy {
+    position: absolute; left: 483px; top: 258px; width: 660px;
+    font-size: 21px; line-height: 1.5; color: #b7bac2;
+  }
+  .sub-copy b { color: #d95926; font-weight: 700; }
+  .terminal {
+    position: absolute; left: 483px; top: 380px; width: 660px;
+    font-size: 15px; line-height: 2; color: #6d90b8;
+    border-top: 1px solid #2a2d34;
+    padding-top: 18px;
+  }
+  .terminal .prompt { color: #4a7fc9; }
+  .terminal .val { color: #d3d5da; }
+  .legend {
+    position: absolute; left: 483px; top: 500px; width: 660px;
+    display: flex; gap: 32px;
+  }
+  .legend-item { font-size: 14px; color: #9a9da5; display: flex; align-items: center; gap: 8px; }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+  .footer {
+    position: absolute; left: 483px; bottom: 26px;
+    font-size: 12px; color: #6b6e76;
+  }
+  .bar-label {
+    font-size: 13px; color: #7b7f89; line-height: 1.4;
+  }
+  .bar-label b { color: #d3d5da; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <svg width="1200" height="630" viewBox="0 0 1200 630" style="position:absolute; left:0; top:0;">
+    <!-- memory-map bar -->
+    <rect x="90" y="90" width="46" height="12.77" fill="#d95926"/>
+    <rect x="90" y="102.77" width="46" height="477.23" fill="#3987e5" opacity="0.30"/>
+    <!-- tick rule down the side, address-map style -->
+    <line x1="150" y1="90" x2="150" y2="580" stroke="#2a2d34" stroke-width="1"/>
+    <line x1="145" y1="90" x2="150" y2="90" stroke="#2a2d34" stroke-width="1"/>
+    <line x1="145" y1="102.77" x2="150" y2="102.77" stroke="#2a2d34" stroke-width="1"/>
+    <line x1="145" y1="580" x2="150" y2="580" stroke="#2a2d34" stroke-width="1"/>
+  </svg>
+
+  <div style="position:absolute; left:160px; top:84px; width:300px;" class="mono bar-label">
+    <b>0x0000</b><br>RAM, resident<br><b>9.9 GB</b>, int4
+  </div>
+  <div style="position:absolute; left:160px; top:320px; width:300px;" class="mono bar-label">
+    <b>0x270000000</b><br>disk, streamed on demand<br><b>370 GB</b>, 19,456 experts
+  </div>
+
+  <div class="kicker">Colibri &mdash; GLM-5.2 on a laptop</div>
+  <div class="headline-row">
+    <span class="headline">11GB</span><span class="headline-unit">per word</span>
+  </div>
+  <div class="sub-copy">
+    744B parameters. 25GB of RAM. <b>Only 5.4% of the model does anything for a single word</b> &mdash; the rest waits on a hard drive until it's needed.
+  </div>
+
+  <div class="terminal mono">
+    <div><span class="prompt">params&gt;</span> <span class="val">744,000,000,000 total / 40,000,000,000 active</span></div>
+    <div><span class="prompt">experts&gt;</span> <span class="val">19,456 routed, ~8 lit per layer per word</span></div>
+    <div><span class="prompt">engine&gt;</span> <span class="val">~1,300 lines, pure C, zero dependencies</span></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch" style="background:#d95926;"></span>resident in RAM</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#3987e5; opacity:0.6;"></span>streamed from disk</div>
+  </div>
+
+  <div class="footer">github.com/abhays02/lab/tree/main/colibri-glm &nbsp;&middot;&nbsp; source: github.com/JustVugg/colibri</div>
+</div>
+</body>
+</html>
