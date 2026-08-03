@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1080" />
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #14101f;
+      }
+      body { font-family: "Archivo Black", sans-serif; }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #14101f;
+        color: #fff;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .scene-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 50px;
+      }
+
+      .meme {
+        font-family: "Archivo Black", sans-serif;
+        text-transform: uppercase;
+        color: #ffffff;
+        -webkit-text-stroke: 9px #000;
+        paint-order: stroke fill;
+        letter-spacing: 0.005em;
+        line-height: 0.92;
+        font-size: 128px;
+      }
+      .meme.smaller { font-size: 92px; }
+      .meme.tiny { font-size: 62px; }
+      .meme.coral { color: #ff5d5d; }
+      .meme.yellow { color: #ffe347; }
+      .meme.teal { color: #14e8c4; }
+
+      .tag {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-2deg);
+        font-family: "Archivo Black", sans-serif;
+        text-transform: uppercase;
+        font-size: 34px;
+        color: #14101f;
+        background: #ffe347;
+        padding: 8px 22px;
+        -webkit-text-stroke: 0;
+        letter-spacing: 0.02em;
+      }
+
+      #s12-mark {
+        font-family: "Archivo Black", sans-serif;
+        text-transform: uppercase;
+        font-size: 150px;
+        color: #fff;
+        -webkit-text-stroke: 10px #000;
+        paint-order: stroke fill;
+      }
+      #s12-mark span { color: #14e8c4; }
+      #s12-url {
+        margin-top: 26px;
+        font-family: ui-monospace, monospace;
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffe347;
+        background: #14101f;
+        display: inline-block;
+      }
+      #s12-credit {
+        margin-top: 14px;
+        font-family: "Archivo Black", sans-serif;
+        text-transform: uppercase;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: #b7aecf;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="10.6"
+      data-width="1080"
+      data-height="1080"
+    >
+      <div id="s0" class="clip" data-start="0" data-duration="0.9" data-track-index="1">
+        <div class="tag">true story</div>
+        <div id="s0-inner" class="scene-inner">
+          <div class="meme" style="transform: rotate(-3deg);">744B<br>PARAMS</div>
+        </div>
+      </div>
+
+      <div id="s1" class="clip" data-start="0.9" data-duration="0.8" data-track-index="1">
+        <div id="s1-inner" class="scene-inner">
+          <div class="meme coral" style="transform: rotate(2deg);">ON A<br>LAPTOP</div>
+        </div>
+      </div>
+
+      <div id="s2" class="clip" data-start="1.7" data-duration="0.7" data-track-index="1">
+        <div id="s2-inner" class="scene-inner">
+          <div class="meme yellow smaller" style="transform: rotate(-4deg);">NO GPU</div>
+        </div>
+      </div>
+
+      <div id="s3" class="clip" data-start="2.4" data-duration="0.8" data-track-index="1">
+        <div id="s3-inner" class="scene-inner">
+          <div class="meme teal smaller" style="transform: rotate(3deg);">JUST DISK<br>+ RAM</div>
+        </div>
+      </div>
+
+      <div id="s4" class="clip" data-start="3.2" data-duration="0.9" data-track-index="1">
+        <div id="s4-inner" class="scene-inner">
+          <div class="meme" style="transform: rotate(-2deg);">5.4%<br>ACTIVE</div>
+        </div>
+      </div>
+
+      <div id="s5" class="clip" data-start="4.1" data-duration="0.9" data-track-index="1">
+        <div id="s5-inner" class="scene-inner">
+          <div class="meme coral smaller" style="transform: rotate(1deg); line-height: 1.05;">PER.<br>SINGLE.<br>WORD.</div>
+        </div>
+      </div>
+
+      <div id="s6" class="clip" data-start="5.0" data-duration="0.8" data-track-index="1">
+        <div id="s6-inner" class="scene-inner">
+          <div class="meme yellow" style="transform: rotate(-3deg);">11GB</div>
+        </div>
+      </div>
+
+      <div id="s7" class="clip" data-start="5.8" data-duration="0.7" data-track-index="1">
+        <div id="s7-inner" class="scene-inner">
+          <div class="meme teal smaller" style="transform: rotate(4deg);">EVERY<br>WORD</div>
+        </div>
+      </div>
+
+      <div id="s8" class="clip" data-start="6.5" data-duration="0.9" data-track-index="1">
+        <div id="s8-inner" class="scene-inner">
+          <div class="meme" style="transform: rotate(-2deg);">10&ndash;20<br>SEC</div>
+        </div>
+      </div>
+
+      <div id="s9" class="clip" data-start="7.4" data-duration="0.9" data-track-index="1">
+        <div id="s9-inner" class="scene-inner">
+          <div class="meme coral smaller" style="transform: rotate(2deg);">PER WORD.<br>COLD.</div>
+        </div>
+      </div>
+
+      <div id="s10" class="clip" data-start="8.3" data-duration="1.1" data-track-index="1">
+        <div id="s10-inner" class="scene-inner">
+          <div class="meme yellow tiny" style="transform: rotate(-1deg); line-height: 1.15;">NOBODY KNOWS<br>WHY IT'S THIS SLOW</div>
+        </div>
+      </div>
+
+      <div id="s11" class="clip" data-start="9.4" data-duration="1.2" data-track-index="1">
+        <div id="s11-inner" class="scene-inner" style="flex-direction: column;">
+          <div id="s12-mark">COLI<span>BRI</span></div>
+          <div id="s12-url">github.com/JustVugg/colibri</div>
+          <div id="s12-credit">built by JustVugg &middot; pure C &middot; zero deps</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      function slap(sel, start, opts) {
+        const base = { scale: 1.6, opacity: 0, duration: 0.16, ease: "power4.out" };
+        tl.from(sel, Object.assign({}, base, opts || {}), start);
+      }
+
+      slap("#s0 .meme", 0.02, { scale: 1.8 });
+      slap("#s0 .tag", 0.05, { scale: 2.2, rotation: 15 });
+
+      slap("#s1 .meme", 0.92);
+      slap("#s2 .meme", 1.72, { scale: 2.0 });
+      slap("#s3 .meme", 2.42);
+      slap("#s4 .meme", 3.22, { scale: 1.9 });
+      slap("#s5 .meme", 4.12);
+      slap("#s6 .meme", 5.02, { scale: 2.1 });
+      slap("#s7 .meme", 5.82);
+      slap("#s8 .meme", 6.52, { scale: 1.9 });
+      slap("#s9 .meme", 7.42);
+      slap("#s10 .meme", 8.32, { scale: 1.3, duration: 0.22 });
+
+      slap("#s12-mark", 9.42, { scale: 1.5, duration: 0.22 });
+      tl.from("#s12-url", { y: 18, opacity: 0, duration: 0.2, ease: "power2.out" }, 9.66);
+      tl.from("#s12-credit", { opacity: 0, duration: 0.2 }, 9.86);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
