@@ -1,0 +1,21 @@
+{
+  "active_fraction_pct": 5.38,
+  "implied_top_k_per_layer": 7.9,
+  "predicted_gb_per_token_at_top8": 11.13,
+  "time_per_token_range_s": [
+    10.0,
+    20.0
+  ],
+  "implied_effective_read_throughput_GBps": [
+    0.55,
+    1.1
+  ],
+  "typical_nvme_sequential_GBps": [
+    3.5,
+    7.0
+  ],
+  "shortfall_vs_rated_spec_x": [
+    3.2,
+    12.7
+  ]
+}
