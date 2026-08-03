@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>double descent — the interpolation-threshold spike</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #1a1a19; }
+  .poster {
+    width: 1200px;
+    height: 630px;
+    background: #1a1a19;
+    position: relative;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+  }
+  .kicker {
+    position: absolute; left: 56px; top: 44px;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.14em;
+    color: #898781; text-transform: uppercase;
+    opacity: 0; animation: fadeUp 500ms 150ms cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .headline-block {
+    position: absolute; left: 560px; top: 108px; width: 590px; text-align: right;
+    opacity: 0; animation: fadeUp 500ms 1550ms cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .headline { font-size: 124px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; line-height: 0.95; font-variant-numeric: tabular-nums; }
+  .headline-unit { font-size: 22px; font-weight: 600; color: #c3c2b7; }
+  .headline-sub { margin-top: 10px; font-size: 21px; color: #c3c2b7; line-height: 1.4; }
+  .headline-sub b { color: #d95926; font-weight: 700; }
+  .note { position: absolute; font-size: 17px; color: #898781; font-variant-numeric: tabular-nums; opacity: 0; }
+  .note b { color: #c3c2b7; font-weight: 600; }
+  .note-left { left: 40px; top: 435px; animation: fadeUp 400ms 300ms cubic-bezier(.4,0,.2,1) forwards; }
+  .note-right { right: 40px; top: 458px; text-align: right; animation: fadeUp 400ms 1750ms cubic-bezier(.4,0,.2,1) forwards; }
+  .footer { position: absolute; right: 40px; bottom: 18px; font-size: 12px; color: #605f5a; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .curve-left { stroke-dasharray: 480; stroke-dashoffset: 480; animation: draw 550ms 250ms cubic-bezier(.4,0,.2,1) forwards; }
+  .curve-sharp { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 500ms 800ms cubic-bezier(.4,0,.2,1) forwards; }
+  .curve-right { stroke-dasharray: 780; stroke-dashoffset: 780; animation: draw 650ms 1300ms cubic-bezier(.4,0,.2,1) forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .burst { opacity: 0; transform-origin: 519.5px 90px; transform: scale(0.6); animation: burstIn 300ms 1250ms cubic-bezier(.34,1.4,.4,1) forwards; }
+  @keyframes burstIn { to { opacity: 1; transform: scale(1); } }
+  .end-dot { opacity: 0; }
+  .dot-left { animation: fadeUp 300ms 250ms cubic-bezier(.4,0,.2,1) forwards; }
+  .dot-right { animation: fadeUp 300ms 1950ms cubic-bezier(.4,0,.2,1) forwards; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="kicker">Double Descent</div>
+
+  <div class="headline-block">
+    <span class="headline">238,807</span><span class="headline-unit"> test MSE</span>
+    <div class="headline-sub">One model. <b>p = n = 100</b> parameters and it breaks. One parameter later, it is 32.9.</div>
+  </div>
+
+  <div class="note note-left">starts at <b>1.21</b></div>
+  <div class="note note-right">settles at <b>0.46</b>, the floor</div>
+
+  <svg width="1200" height="630" viewBox="0 0 1200 630" style="position:absolute; left:0; top:0;">
+    <path class="curve-left" d="M 40.0,467.7 C 75.4,466.0 191.7,464.9 252.2,457.7 C 312.7,450.4 362.7,445.5 402.8,424.2 C 442.8,403.0 477.7,345.9 492.7,330.2"
+      fill="none" stroke="#3987e5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="curve-sharp" d="M 492.7,330.2 L 514.3,171.6 L 519.5,90.0 L 524.7,248.2 L 545.1,312.0"
+      fill="none" stroke="#3987e5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="curve-right" d="M 545.1,312.0 C 549.1,321.3 557.8,351.6 569.4,367.6 C 581.1,383.6 593.9,395.9 615.0,408.2 C 636.0,420.5 670.5,432.9 695.6,441.2 C 720.7,449.5 734.4,452.3 765.5,458.1 C 796.6,463.9 839.9,470.5 882.3,475.8 C 924.6,481.1 973.3,486.3 1019.6,489.7 C 1065.9,493.1 1136.6,495.0 1160.0,496.1"
+      fill="none" stroke="#3987e5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g class="burst">
+      <line x1="519.5" y1="90.0" x2="498.8" y2="82.5" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="500.2" y2="67.0" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="514.3" y2="70.7" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="519.5" y2="56.0" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="525.2" y2="68.7" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="538.8" y2="67.0" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <line x1="519.5" y1="90.0" x2="538.3" y2="83.2" stroke="#d95926" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="519.5" cy="90.0" r="9" fill="#d95926"/>
+    </g>
+
+    <circle class="end-dot dot-left" cx="40.0" cy="467.7" r="6" fill="#3987e5"/>
+    <circle class="end-dot dot-right" cx="1160.0" cy="496.1" r="6" fill="#3987e5"/>
+  </svg>
+
+  <div class="footer">github.com/abhays02/lab/tree/main/double-descent</div>
+</div>
+</body>
+</html>
