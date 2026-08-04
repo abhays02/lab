@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root{
+    --surface:#1a1a19;
+    --ink:#ffffff;
+    --secondary:#c3c2b7;
+    --muted:#898781;
+    --blue:#3987e5;
+    --orange:#d95926;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--surface);}
+  .stage{
+    position:relative;width:1080px;height:1080px;overflow:hidden;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    background:var(--surface);
+  }
+  .panel{position:absolute;top:0;width:540px;height:1000px;padding:56px;box-sizing:border-box;}
+  .panel.left{left:0;background:linear-gradient(0deg, rgba(57,135,229,0.06), rgba(57,135,229,0.06)), var(--surface);}
+  .panel.right{left:540px;background:linear-gradient(0deg, rgba(217,89,38,0.06), rgba(217,89,38,0.06)), var(--surface);}
+
+  .seam{position:absolute;left:538px;top:0;width:4px;height:1000px;}
+  .seam .half{position:absolute;width:2px;height:1000px;top:0;}
+  .seam .half.l{left:0;background:var(--blue);}
+  .seam .half.r{left:2px;background:var(--orange);}
+  .seam-label{
+    position:absolute;left:540px;top:500px;
+    transform:translate(-50%,-50%) rotate(-90deg);
+    font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--muted);
+    white-space:nowrap;
+  }
+
+  .kicker{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;}
+  .left .kicker{color:var(--blue);}
+  .right .kicker{color:var(--orange);text-align:right;}
+
+  .statwrap{position:relative;height:340px;margin-top:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .left .statwrap{align-items:center;}
+  .right .statwrap{align-items:center;}
+
+  .stat{font-size:220px;font-weight:700;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;}
+  .struck{
+    font-size:52px;font-weight:500;color:var(--muted);
+    text-decoration:line-through;text-decoration-thickness:4px;
+    opacity:.4;margin-bottom:6px;
+  }
+  #r-stat{opacity:.28;transition:opacity .5s cubic-bezier(.4,0,.2,1);}
+  #r-stat.resolved{opacity:1;}
+
+  .subcopy{font-size:20px;font-weight:400;color:var(--secondary);line-height:1.4;margin-top:8px;opacity:0;}
+  .right .subcopy{text-align:right;}
+  .footnote{font-size:15px;font-weight:500;margin-top:26px;opacity:0;}
+  .left .footnote{color:var(--blue);}
+  .right .footnote{color:var(--orange);text-align:right;}
+
+  .footer{
+    position:absolute;left:0;bottom:0;width:1080px;height:80px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:400;color:var(--muted);opacity:0;
+    padding:0 80px;text-align:center;line-height:1.5;
+  }
+
+  /* animation classes, added by JS to control timing precisely for capture */
+  .in{opacity:1 !important;transition:opacity .4s cubic-bezier(.4,0,.2,1);}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="panel left">
+    <div class="kicker">PARALLEL SORTING &mdash; SOLVED THROUGH</div>
+    <div class="statwrap"><div class="stat">17</div></div>
+    <div class="subcopy" id="l-sub">proven optimal. exact. down to the round.</div>
+    <div class="footnote" id="l-fn">n=17 &rarr; 10 rounds, proven 2015</div>
+  </div>
+  <div class="panel right">
+    <div class="kicker">PAST THAT &mdash; OPEN</div>
+    <div class="statwrap">
+      <div class="struck" id="struck">14</div>
+      <div class="stat" id="r-stat">13</div>
+    </div>
+    <div class="subcopy" id="r-sub">best known for 28 items. not proven optimal.</div>
+    <div class="footnote" id="r-fn">record dropped, Nov 2025 &mdash; held at 14 for over a decade</div>
+  </div>
+  <div class="seam"><div class="half l"></div><div class="half r"></div></div>
+  <div class="seam-label">PROOF STOPS HERE</div>
+  <div class="footer" id="footer">verified in-session: the textbook algorithm (Batcher, 1968) needs 10 rounds for 16 items, one more than proven optimal &middot; github.com/abhays02/lab/tree/main/sorting-network-depth</div>
+</div>
+<script>
+  // t=0 first frame: struck "14" visible, "13" already present but dim/unresolved (28% opacity)
+  const glyphs = ['11','12','13'];
+  const rstat = document.getElementById('r-stat');
+  let step = 0;
+  function flicker(){
+    if(step < glyphs.length){
+      rstat.textContent = glyphs[step];
+      step++;
+      setTimeout(flicker, 120);
+    } else {
+      rstat.textContent = '13';
+      rstat.classList.add('resolved');
+    }
+  }
+
+  window.__play = function(){
+    setTimeout(flicker, 30);
+    setTimeout(()=>{ document.getElementById('l-sub').classList.add('in'); }, 1200);
+    setTimeout(()=>{ document.getElementById('r-sub').classList.add('in'); }, 1280);
+    setTimeout(()=>{ document.getElementById('l-fn').classList.add('in'); }, 1500);
+    setTimeout(()=>{ document.getElementById('r-fn').classList.add('in'); }, 1580);
+    setTimeout(()=>{ document.getElementById('footer').classList.add('in'); }, 2000);
+  };
+</script>
+</body></html>

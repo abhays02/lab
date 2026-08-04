@@ -1,0 +1,59 @@
+{
+  "2": {
+    "n": 2,
+    "comparators": 1,
+    "depth_layers": 1,
+    "formula_k(k+1)/2": 1,
+    "depth_matches_formula": true,
+    "verified_0_1_principle": true,
+    "counterexamples": []
+  },
+  "4": {
+    "n": 4,
+    "comparators": 6,
+    "depth_layers": 3,
+    "formula_k(k+1)/2": 3,
+    "depth_matches_formula": true,
+    "verified_0_1_principle": true,
+    "counterexamples": []
+  },
+  "8": {
+    "n": 8,
+    "comparators": 24,
+    "depth_layers": 6,
+    "formula_k(k+1)/2": 6,
+    "depth_matches_formula": true,
+    "verified_0_1_principle": true,
+    "counterexamples": []
+  },
+  "16": {
+    "n": 16,
+    "comparators": 80,
+    "depth_layers": 10,
+    "formula_k(k+1)/2": 10,
+    "depth_matches_formula": true,
+    "verified_0_1_principle": true,
+    "counterexamples": []
+  },
+  "32": {
+    "n": 32,
+    "comparators": 240,
+    "depth_layers": 15,
+    "formula_k(k+1)/2": 15,
+    "depth_matches_formula": true
+  },
+  "64": {
+    "n": 64,
+    "comparators": 672,
+    "depth_layers": 21,
+    "formula_k(k+1)/2": 21,
+    "depth_matches_formula": true
+  },
+  "128": {
+    "n": 128,
+    "comparators": 1792,
+    "depth_layers": 28,
+    "formula_k(k+1)/2": 28,
+    "depth_matches_formula": true
+  }
+}
