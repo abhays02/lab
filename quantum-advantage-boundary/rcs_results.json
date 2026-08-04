@@ -1,0 +1,121 @@
+{
+  "circuit": {
+    "n_qubits": 14,
+    "dim": 16384,
+    "layers": 40,
+    "n_circuit_instances": 6,
+    "gate_set": "Haar-random single-qubit SU(2) + brick-pattern CZ entanglers"
+  },
+  "porter_thomas_check": {
+    "n_samples": 98304,
+    "mean_q": 1.0,
+    "theoretical_mean_q": 1.0,
+    "var_q": 1.0031675105118432,
+    "theoretical_var_q": 1.0,
+    "ks_statistic": 0.0010992412707855892
+  },
+  "depth_sweep_porter_thomas": [
+    {
+      "layers": 9,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 2.3573352016895934,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.12254134441477488
+    },
+    {
+      "layers": 15,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 1.7433512778368179,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.06655140010138061
+    },
+    {
+      "layers": 20,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 1.212978013770343,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.023588248733283745
+    },
+    {
+      "layers": 30,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 1.0799390097391985,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.009088254223079462
+    },
+    {
+      "layers": 40,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 1.0166861908666964,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.0026384336989632162
+    },
+    {
+      "layers": 60,
+      "n_samples": 98304,
+      "mean_q": 1.0,
+      "theoretical_mean_q": 1.0,
+      "var_q": 1.0051046945048003,
+      "theoretical_var_q": 1.0,
+      "ks_statistic": 0.002396749805720799
+    }
+  ],
+  "linear_xeb_per_circuit": [
+    1.0382374282690146,
+    0.9902392910991615,
+    1.0121271951388784,
+    0.9991648678068865,
+    1.0140962769413808,
+    1.0202297177515751
+  ],
+  "linear_xeb_mean": 1.0123491295011495,
+  "linear_xeb_std": 0.01526476975419154,
+  "classical_memory_table_full_statevector": [
+    {
+      "qubits": 10,
+      "bytes_exact": 16384,
+      "human": "16.38 KB"
+    },
+    {
+      "qubits": 20,
+      "bytes_exact": 16777216,
+      "human": "16.78 MB"
+    },
+    {
+      "qubits": 30,
+      "bytes_exact": 17179869184,
+      "human": "17.18 GB"
+    },
+    {
+      "qubits": 40,
+      "bytes_exact": 17592186044416,
+      "human": "17.59 TB"
+    },
+    {
+      "qubits": 50,
+      "bytes_exact": 18014398509481984,
+      "human": "18.01 PB"
+    },
+    {
+      "qubits": 53,
+      "bytes_exact": 144115188075855872,
+      "human": "144.12 PB"
+    },
+    {
+      "qubits": 60,
+      "bytes_exact": 18446744073709551616,
+      "human": "18.45 EB"
+    }
+  ],
+  "sycamore_2019_memory_bytes_exact": 144115188075855872
+}
