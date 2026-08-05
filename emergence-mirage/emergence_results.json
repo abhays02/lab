@@ -1,0 +1,35 @@
+{
+  "description": "per-token accuracy p(x) is a fixed smooth logistic; exact_match(x,k) = p(x)^k. Only k changes across rows.",
+  "rows": [
+    {
+      "k": 1,
+      "per_token_acc_needed_for_50pct_exact_match": 0.5,
+      "x_where_exact_match_crosses_50pct": 5.0,
+      "x_width_10pct_to_90pct": 3.662
+    },
+    {
+      "k": 5,
+      "per_token_acc_needed_for_50pct_exact_match": 0.870551,
+      "x_where_exact_match_crosses_50pct": 6.5882,
+      "x_width_10pct_to_90pct": 2.7608
+    },
+    {
+      "k": 20,
+      "per_token_acc_needed_for_50pct_exact_match": 0.965936,
+      "x_where_exact_match_crosses_50pct": 7.7874,
+      "x_width_10pct_to_90pct": 2.6166
+    },
+    {
+      "k": 50,
+      "per_token_acc_needed_for_50pct_exact_match": 0.986233,
+      "x_where_exact_match_crosses_50pct": 8.5597,
+      "x_width_10pct_to_90pct": 2.5887
+    },
+    {
+      "k": 100,
+      "per_token_acc_needed_for_50pct_exact_match": 0.993092,
+      "x_where_exact_match_crosses_50pct": 9.1402,
+      "x_width_10pct_to_90pct": 2.5795
+    }
+  ]
+}
