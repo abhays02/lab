@@ -4,41 +4,82 @@
   <img src="animation.svg" alt="Global gradient variance collapses as qubits increase" width="100%" />
 </p>
 
-> **When does a learning signal go silent?**
+## 01. The question
 
-| Measure | 2 qubits | 12 qubits |
-|---|---:|---:|
-| Local gradient variance | 0.1127 | 0.0325 |
-| Global gradient variance | 0.0977 | 0.000101 |
-
-## What you are seeing
-
-- Same circuit depth: `20`
-- Same parameter
-- Same random-circuit family
-- Only the qubit count changes
-- Global readout loses signal much faster
-
-## The run
-
-- Pure NumPy statevector simulator
-- `150` circuits per qubit count
-- `2 → 12` qubits
-- Exact parameter-shift gradients
-- Local `<Z₀>` vs global parity `<Z₀…Zₙ₋₁>`
-
-## Takeaway
+> **What happens to the training signal when the circuit gets wider?**
 
 ```text
-LOCAL   0.1127  →  0.0325
-GLOBAL  0.0977  →  0.000101
-                    ≈ 965×
+same circuit
+same depth
+same parameter
+      │
+      └──── add qubits ────→
+                    ↓
+             does the gradient survive?
 ```
 
-This is a reproduction of an established barren-plateau effect. The numbers are independently computed in this repo.
+## 02. The comparison
 
-## Go deeper
+| | Local cost | Global cost |
+|---|---|---|
+| Readout | `<Z₀>` | `<Z₀ Z₁ ... Zₙ₋₁>` |
+| Depth | 20 | 20 |
+| Circuits / size | 150 | 150 |
+| Width | 2 → 12 qubits | 2 → 12 qubits |
 
-[Open the interactive visual](visual.html) · [Run the code](barren.py) · [Read the evidence](compute.md) · [Inspect raw data](barren_log.json)
+## 03. The result
+
+| Gradient variance | 2 qubits | 12 qubits | Change |
+|---|---:|---:|---:|
+| Local | 0.1127 | 0.0325 | 3.5× lower |
+| Global | 0.0977 | 0.000101 | **965× lower** |
+
+```text
+LOCAL
+0.1127 ━━━━━━━━━━━━━━━━━━━━━ 0.0325
+
+GLOBAL
+0.0977 ━━━━━━━━━━━━━━━━━━━━━ 0.000101
+                                  nearly silent
+```
+
+## 04. What this answers
+
+**The global objective loses usable gradient signal much faster.**
+
+The local objective shrinks too, but stays much stronger in this run.
+
+## 05. What was actually run
+
+- NumPy statevector simulator
+- Random hardware-efficient circuits
+- Fixed depth: `20`
+- `2, 4, 6, 8, 10, 12` qubits
+- `150` circuits per point
+- Exact parameter-shift gradients
+
+## 06. What is known vs checked here
+
+| Layer | Answer |
+|---|---|
+| Established | Barren-plateau suppression is known. |
+| Verified here | The local/global contrast above was independently computed. |
+| Not claimed | No new theorem or optimizer is claimed. |
+
+## 07. Evidence path
+
+```text
+QUESTION
+   ↓
+VISUAL
+   ↓
+CODE
+   ↓
+RAW LOG
+   ↓
+PROVENANCE
+```
+
+[Interactive visual](visual.html) · [Code](barren.py) · [Raw log](barren_log.json) · [Evidence](compute.md)
 
 [Back to the lab](../)
