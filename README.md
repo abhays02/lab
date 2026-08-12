@@ -1,115 +1,80 @@
 # ABHAYS02 / LAB
 
 <p align="center">
-  <img src="assets/lab-intro.svg" alt="Questions become experiments, experiments become evidence" width="100%" />
+  <img src="assets/lab-hook.svg" alt="I don't start with answers. I start with something worth checking." width="100%" />
 </p>
 
-> **Small experiments. Real runs. Raw evidence.**
->
-> This is where I test ideas before I trust them.
+## The lab
 
-## Start here
+Small experiments built to make difficult ideas **visible**.
 
-| | Experiment | The hook |
+Not a list of claims.
+
+A trail of questions, runs, measurements, and things that did not quite behave as expected.
+
+## Pick a rabbit hole
+
+| | Experiment | First thing you see |
 |---|---|---|
-| 01 | [Barren plateaus](barren-plateaus/) | **When does a learning signal go silent?** |
-| 02 | [Double descent](double-descent/) | **Why does one extra feature make the cliff disappear?** |
-| 03 | [Colibri / GLM](colibri-glm/) | **How can a 744B model run from a laptop?** |
-| 04 | [Sorting networks](sorting-network-depth/) | **Why is a classic network still one round too deep?** |
-| 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **Where does the classical chase stop?** |
-| 06 | [Emergence mirage](emergence-mirage/) | **Can the same smooth curve look like a sudden breakthrough?** |
-| 07 | [Matrix multiplication](matmul-omega/) | **How far can Strassen's idea actually take us?** |
+| 01 | [Barren plateaus](barren-plateaus/) | **965×** collapse in global gradient variance |
+| 02 | [Double descent](double-descent/) | **238,807 → 32.9** after one extra feature |
+| 03 | [Colibri / GLM](colibri-glm/) | **11 GB** of cold-token disk reads |
+| 04 | [Sorting networks](sorting-network-depth/) | **10 rounds vs 9** at 16 inputs |
+| 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **144.12 PB** for one 53-qubit statevector |
+| 06 | [Emergence mirage](emergence-mirage/) | **same curve, different “jump”** |
+| 07 | [Matrix multiplication](matmul-omega/) | **n²·8074** vs n³ call growth |
 
-## The rule
+## How to read one
 
 ```text
-QUESTION
-   ↓
-RUN
-   ↓
-VERIFY
-   ↓
-SHOW THE EVIDENCE
-   ↓
-SAY WHAT IS STILL UNKNOWN
+       SEE
+        │
+        ▼
+     MEASURE
+        │
+        ▼
+      CHECK
+        │
+        ▼
+   WHAT'S LEFT?
 ```
 
-No experiment gets promoted into a discovery just because the result looks interesting.
+Every experiment keeps four things close together:
 
-## Every experiment has three layers
+- **Visual** — understand it before reading it.
+- **Measurement** — see the actual number.
+- **Code** — run the experiment yourself.
+- **Provenance** — know what is established and what was verified here.
 
-**1. SEE IT**
+## The honesty layer
 
-A visual explanation first.
-
-**2. MEASURE IT**
-
-A real number, curve, table, or test.
-
-**3. REPRODUCE IT**
-
-Code + raw output + validation notes.
-
-## What the labels mean
-
-| Label | Meaning |
+| Label | Means |
 |---|---|
-| **ESTABLISHED** | Already supported by prior work. |
+| **ESTABLISHED** | Known before this experiment. |
 | **VERIFIED HERE** | Independently computed in this lab. |
-| **HYPOTHESIS** | An idea that still needs testing. |
-| **NOT CLAIMED** | Deliberately not presented as new. |
+| **HYPOTHESIS** | Still being tested. |
+| **NOT CLAIMED** | Interesting, but not presented as new. |
 
 ## The visual notebook
 
-[Open the research notebook](docs/RESEARCH_NOTEBOOK.md)
+[See every experiment as one research map →](docs/RESEARCH_NOTEBOOK.md)
 
-It maps the experiments by question, visual idea, measurement, and evidence.
+## The point
 
-## A few rabbit holes
+Some experiments end with a result.
 
-### Signal → silence
+Some end with a better question.
 
-[barren-plateaus](barren-plateaus/) measures how a global cost function can lose gradient signal far faster than a local one.
-
-### The interpolation cliff
-
-[double-descent](double-descent/) walks through the sharp risk spike around the point where a model can exactly fit its training data.
-
-### Same curve, different illusion
-
-[emergence-mirage](emergence-mirage/) shows how an unchanged smooth capability curve can look dramatically more sudden when the metric demands many correct tokens at once.
-
-### One layer too deep
-
-[sorting-network-depth](sorting-network-depth/) builds Batcher's network from scratch and checks it against brute-force 0-1 inputs.
-
-## Run one
-
-Most experiments are deliberately small and dependency-light.
-
-```bash
-cd barren-plateaus
-python barren.py
-```
-
-Then open the experiment's visual artifact and inspect the raw log.
-
-## Why this exists
-
-Not every useful experiment needs to become a paper.
-
-Sometimes the useful outcome is simply:
+Both are useful.
 
 ```text
-"I thought X.
+I thought X.
+        ↓
 I ran it.
+        ↓
 X was not quite right.
-Now I know why."
+        ↓
+Now I know why.
 ```
 
-That is still research.
-
----
-
-**abhays02 / lab**  
-Small experiments · visual explanations · reproducible evidence
+[abhays02/lab](https://github.com/abhays02/lab)
