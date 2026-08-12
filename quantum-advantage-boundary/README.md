@@ -1,67 +1,50 @@
 # Quantum advantage boundary
 
 <p align="center">
-  <img src="visual.svg" alt="Classical full-statevector memory grows from kilobytes to exabytes" width="100%" />
+  <img src="animation.svg" alt="Exact statevector memory grows to 144.12 PB at 53 qubits" width="100%" />
 </p>
 
-> **At 53 qubits, the full statevector needs 144.12 PB.**
-
-That is only the storage problem.
-
-The real question is what classical algorithms can do without storing it all.
-
-### What I verified
+> **At 53 qubits, one exact statevector needs 144.12 PB.**
 
 | Check | Result |
 |---|---:|
 | Circuit size | 14 qubits |
-| Deep-run samples | 98,304 |
-| Porter–Thomas variance at 40 layers | 1.0167 |
-| Target variance | 1.0000 |
+| Samples in deep run | 98,304 |
+| Variance at 40 layers | 1.0167 |
 | KS statistic at 40 layers | 0.00264 |
 | Linear XEB | 1.012 ± 0.015 |
-| Exact statevector memory at 53 qubits | 144.12 PB |
+| Full statevector at 53 qubits | 144.12 PB |
 
-### Depth changes the distribution
+## What you are seeing
 
 ```text
-layers     9       15       20       30       40
-KS       .123     .067     .024     .009     .0026
-          └──────────────→ closer to Porter–Thomas
+10q   KB
+20q   MB
+30q   GB
+40q   TB
+50q   PB
+53q   144.12 PB
+60q   18.45 EB
 ```
 
-### What I ran
+## The run
 
 - From-scratch NumPy statevector simulator
 - 14 qubits
 - Haar-random single-qubit SU(2) gates
 - Brick-pattern CZ entanglers
-- Depth sweep: 9 → 60
+- Depth sweep: `9 → 60`
 - Six independent circuits per depth
-- Exact memory arithmetic for full statevectors
+- Exact memory arithmetic
 
-### What this is
+## Takeaway
 
-- A validation experiment.
-- A visual way to understand why RCS gets difficult to simulate.
-- Not a new quantum-advantage claim.
+This is a validation experiment, not a new quantum-advantage claim.
 
-### The open question
+It shows the storage wall clearly and checks the basic RCS statistics behind the visual story.
 
-Does the classical boundary eventually stop moving, or does every new quantum advantage claim become another moving target for classical simulation?
+## Go deeper
 
-This run does not answer that.
-
-### Reproduce
-
-```bash
-python rcs_verify.py
-```
-
-Then inspect:
-
-- `visual.svg` — the 144 PB story
-- `rcs_results.json` — raw measurements
-- `compute.md` — provenance and literature
+[Open the original visual](visual.svg) · [Run the verifier](rcs_verify.py) · [Read the evidence](compute.md) · [Inspect output](rcs_results.json)
 
 [Back to the lab](../)
