@@ -20,7 +20,7 @@ Seven small experiments. Each one has its own folder, visual explanation, code, 
 | 04 | [Sorting networks](sorting-network-depth/) | **10 vs 9** rounds at `n = 16` | reproduction + verification |
 | 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **144.12 PB** at 53 qubits | validation + framing |
 | 06 | [Emergence mirage](emergence-mirage/) | **same curve, different jump** | mechanism reproduction |
-| 07 | [Matrix multiplication](matmul-omega/) | **n²·8074** call growth | reproduction + measurement |
+| 07 | [Matrix multiplication](matmul-omega/) | **n^2.8074** call growth | reproduction + measurement |
 
 ## Open any experiment
 
