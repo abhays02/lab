@@ -4,39 +4,78 @@
   <img src="animation.svg" alt="Batcher sorting network compared with the proven optimum" width="100%" />
 </p>
 
-> **The textbook network works. It is just one round too deep at 16 inputs.**
+## 01. The question
 
-| n | Batcher depth | Known optimum / best known |
-|---:|---:|---:|
-| 16 | **10** | **9** proven optimal |
-| 17 | 10 | 10 proven optimal |
-| 28 | 13 | best known, not proven optimal |
-
-## What I checked
+> **Can a classic sorting network be correct and still use more parallel rounds than necessary?**
 
 ```text
-Batcher
+inputs
   ↓
-comparators
+compare / swap
   ↓
 parallel layers
   ↓
-0 / 1 exhaustive verification
+sorted output
 ```
 
-- Batcher network built from scratch
-- Comparator count and depth cross-checked
-- Every binary input checked for `n ≤ 16`
-- Zero counterexamples
+The experiment measures both correctness and depth.
 
-## Takeaway
+## 02. The key comparison
 
-At `n = 16`, the classic construction leaves **one avoidable round**.
+| Inputs | Batcher depth | Proven optimum / best known | Gap |
+|---:|---:|---:|---:|
+| 16 | **10** | **9** | 1 round |
+| 17 | 10 | 10 | 0 |
+| 28 | 13 | best known: 13 | not proven optimal |
 
-The construction itself is established. The verification in this repo is independent.
+## 03. What I verified
 
-## Go deeper
+```text
+Batcher construction
+        ↓
+80 comparators at n = 16
+        ↓
+10 parallel layers
+        ↓
+all 2^16 binary inputs checked
+        ↓
+0 counterexamples
+```
 
-[Open the animated visual](visual.html) · [Run the code](batcher_verify.py) · [Read the evidence](compute.md) · [Inspect results](batcher_results.json)
+## 04. What this answers
+
+**The textbook construction sorts correctly, but at `n = 16` it is one parallel round deeper than the proven optimum.**
+
+That distinction matters:
+
+```text
+CORRECT ≠ OPTIMAL DEPTH
+```
+
+## 05. What is established vs computed
+
+| Layer | Answer |
+|---|---|
+| Established | Batcher's construction and the proven optimum are prior results. |
+| Verified here | Comparator count, layer count, and exhaustive 0/1 correctness for `n ≤ 16`. |
+| Not claimed | A new optimal sorting network. |
+
+## 06. Why the check is useful
+
+The 0/1 principle turns a huge real-valued correctness space into a finite exhaustive test.
+
+```text
+all real inputs
+      ↓
+0 / 1 principle
+      ↓
+all binary inputs
+      ↓
+exhaustive verification
+```
+
+## 07. Evidence path
+
+[Animated visual](visual.html) · [Verifier](batcher_verify.py) · [Results](batcher_results.json) · [Evidence](compute.md)
 
 [Back to the lab](../)
