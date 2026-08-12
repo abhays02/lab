@@ -1,20 +1,18 @@
 # Sorting network depth
 
 <p align="center">
-  <img src="../assets/lab-intro.svg" alt="Sorting network experiment" width="100%" />
+  <img src="animation.svg" alt="Batcher sorting network compared with the proven optimum" width="100%" />
 </p>
 
-> **The textbook network is correct. It is just not optimal.**
+> **The textbook network works. It is just one round too deep at 16 inputs.**
 
-### What I checked
-
-| n | Batcher depth | Known optimum |
+| n | Batcher depth | Known optimum / best known |
 |---:|---:|---:|
-| 16 | 10 | 9 |
-| 17 | 10 | 10 |
-| 28 | 13 best known | not proven optimal |
+| 16 | **10** | **9** proven optimal |
+| 17 | 10 | 10 proven optimal |
+| 28 | 13 | best known, not proven optimal |
 
-### From scratch
+## What I checked
 
 ```text
 Batcher
@@ -26,36 +24,19 @@ parallel layers
 0 / 1 exhaustive verification
 ```
 
-For every `n ≤ 16`, every binary input was checked.
+- Batcher network built from scratch
+- Comparator count and depth cross-checked
+- Every binary input checked for `n ≤ 16`
+- Zero counterexamples
 
-**Zero counterexamples.**
+## Takeaway
 
-### The interesting gap
+At `n = 16`, the classic construction leaves **one avoidable round**.
 
-At `n = 16`:
+The construction itself is established. The verification in this repo is independent.
 
-```text
-Batcher       10 rounds
-optimal        9 rounds
-               ↑
-          one round
-```
+## Go deeper
 
-The construction is established.
-
-The verification here is ours.
-
-The larger optimal-depth problem remains open beyond the proven range.
-
-### Reproduce
-
-```bash
-python batcher_verify.py
-```
-
-Then inspect:
-
-- `batcher_results.json` — measured network structure
-- `compute.md` — provenance and literature
+[Open the animated visual](visual.html) · [Run the code](batcher_verify.py) · [Read the evidence](compute.md) · [Inspect results](batcher_results.json)
 
 [Back to the lab](../)
