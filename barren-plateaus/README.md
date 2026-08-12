@@ -1,7 +1,7 @@
 # Barren plateaus
 
 <p align="center">
-  <img src="frame.html" alt="Gradient variance collapses for the global cost" width="100%" />
+  <img src="animation.svg" alt="Global gradient variance collapses as qubits increase" width="100%" />
 </p>
 
 > **When does a learning signal go silent?**
@@ -11,45 +11,34 @@
 | Local gradient variance | 0.1127 | 0.0325 |
 | Global gradient variance | 0.0977 | 0.000101 |
 
-### What happened
+## What you are seeing
 
-```text
-LOCAL   0.1127 ───────────────→ 0.0325
-GLOBAL  0.0977 ───────────────→ 0.000101
-                                  ↓
-                              ~965× drop
-```
+- Same circuit depth: `20`
+- Same parameter
+- Same random-circuit family
+- Only the qubit count changes
+- Global readout loses signal much faster
 
-### What I ran
+## The run
 
 - Pure NumPy statevector simulator
-- Fixed depth: 20
-- 150 random circuits per qubit count
-- 2 → 12 qubits
+- `150` circuits per qubit count
+- `2 → 12` qubits
 - Exact parameter-shift gradients
 - Local `<Z₀>` vs global parity `<Z₀…Zₙ₋₁>`
 
-### What this means
+## Takeaway
 
-- The global readout loses usable signal much faster.
-- The local readout shrinks, but does not collapse in this run.
-- This is a reproduction of an established barren-plateau effect.
-- The numbers above are independently computed here.
-
-### Open question
-
-Can we characterize useful circuit families that avoid the collapse at practical scale?
-
-### Reproduce
-
-```bash
-python barren.py
+```text
+LOCAL   0.1127  →  0.0325
+GLOBAL  0.0977  →  0.000101
+                    ≈ 965×
 ```
 
-Then inspect:
+This is a reproduction of an established barren-plateau effect. The numbers are independently computed in this repo.
 
-- `barren_log.json` — raw measurements
-- `visual.html` — interactive visual
-- `compute.md` — provenance and claim classification
+## Go deeper
+
+[Open the interactive visual](visual.html) · [Run the code](barren.py) · [Read the evidence](compute.md) · [Inspect raw data](barren_log.json)
 
 [Back to the lab](../)
