@@ -4,13 +4,9 @@
   <img src="assets/lab-hook.svg" alt="I don't start with answers. I start with something worth checking." width="100%" />
 </p>
 
-<p align="center">
-  <img src="assets/lab-map.svg" alt="Visual map of all seven experiments in the lab" width="100%" />
-</p>
-
 ## What is in the lab
 
-Seven small experiments. Each one has its own folder, visual explanation, code, raw output, and provenance.
+Six small experiments. Each one has its own folder, visual explanation, code, raw output, and provenance.
 
 | # | Experiment | What you see first | Status |
 |---|---|---|---|
@@ -20,7 +16,6 @@ Seven small experiments. Each one has its own folder, visual explanation, code, 
 | 04 | [Sorting networks](sorting-network-depth/) | **10 vs 9** rounds at `n = 16` | reproduction + verification |
 | 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **144.12 PB** at 53 qubits | validation + framing |
 | 06 | [Emergence mirage](emergence-mirage/) | **same curve, different jump** | mechanism reproduction |
-| 07 | [Matrix multiplication](matmul-omega/) | **n^2.8074** call growth | reproduction + measurement |
 
 ## Open any experiment
 
@@ -40,16 +35,6 @@ THE CODE + RAW DATA
 
 The first screen is meant to make the idea understandable before the technical details.
 
-## What each folder contains
-
-- `animation.svg` — GitHub-visible visual overview
-- `visual.html` — interactive version when available
-- `frame.*` — poster / figure artifact when available
-- `*.py` — the actual experiment
-- `*.json` — raw output
-- `compute.md` — sources, validation, and claim classification
-- `README.md` — short human explanation
-
 ## How to read the labels
 
 | Label | Meaning |
@@ -63,9 +48,9 @@ The first screen is meant to make the idea understandable before the technical d
 
 [Open the notebook](docs/RESEARCH_NOTEBOOK.md)
 
-It gives the full experiment-by-experiment view and the provenance rules used across the lab.
+It gives the experiment-by-experiment view and the provenance rules used across the lab.
 
-## Start with the visual, then go deeper
+## Start here
 
 **Barren plateaus** — [open](barren-plateaus/)
 
@@ -79,13 +64,9 @@ It gives the full experiment-by-experiment view and the provenance rules used ac
 
 **Emergence mirage** — [open](emergence-mirage/)
 
-**Matrix multiplication** — [open](matmul-omega/)
-
 ## The rule
 
 A result is not made more original by making the README sound more confident.
-
-The lab keeps the distinction visible:
 
 ```text
 KNOWN
