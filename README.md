@@ -1,17 +1,115 @@
-# lab
+# ABHAYS02 / LAB
 
-Small experiments, each behind one post: one question, one script, one real
-run, raw logs included. Nothing here is a library — it is evidence.
+<p align="center">
+  <img src="assets/lab-intro.svg" alt="Questions become experiments, experiments become evidence" width="100%" />
+</p>
 
-| experiment | question | artifacts |
+> **Small experiments. Real runs. Raw evidence.**
+>
+> This is where I test ideas before I trust them.
+
+## Start here
+
+| | Experiment | The hook |
 |---|---|---|
-| [barren-plateaus](barren-plateaus/) | why does the training signal of a variational quantum circuit collapse 965x when the cost function is global? | numpy statevector sim, 150 circuits/qubit count, raw gradients |
-| [matmul-omega](matmul-omega/) | Strassen's 1969 trick tops out at exponent 2.371 today. Can the true matrix multiplication exponent ever reach 2? | from-scratch numpy Strassen vs naive recursion, correctness-verified, empirical exponent matches theory exactly |
-| [double-descent](double-descent/) | why does a model's test error spike 500,000x at exactly the point it can memorize its training data, then vanish one parameter later? | from-scratch numpy random-features regression, minimum-norm solution swept across the interpolation threshold, raw sweep log |
-| [colibri-glm](colibri-glm/) | a 744B-parameter model just ran on a laptop by streaming 94.6% of itself from an SSD. Why is the achieved read speed still 3-13x under the drive's own rated spec? | arithmetic validation of the published Colibri/GLM-5.2 numbers, checked for internal consistency against known MoE routing math |
-| [sorting-network-depth](sorting-network-depth/) | the exact minimum number of parallel comparison rounds to sort n numbers is proven up to n=17. why does even the textbook 1968 construction still miss that minimum, and why is the record past n=17 still moving? | from-scratch Batcher's bitonic network, correctness verified via brute-force 0-1 principle up to n=16, cross-checked against proven-optimal depths and the Nov 2025 arXiv record for 27/28 channels |
-| [quantum-advantage-boundary](quantum-advantage-boundary/) | every "quantum advantage" claim from random circuit sampling has eventually been chased down by classical algorithms. is there a real floor under it, or does the boundary just keep moving? | from-scratch numpy random-circuit statevector sim (14 qubits), Porter-Thomas statistics verified (KS=0.0011 at depth 40 vs 0.123 at depth 9), linear XEB reproduced (1.012), exact classical memory-cost arithmetic (144 PB at Sycamore's 53 qubits) |
-| [emergence-mirage](emergence-mirage/) | LLMs seem to gain abilities in sudden jumps as they scale. Is that a real phase transition, or an artifact of grading a smooth trend with an all-or-nothing metric? | from-scratch numpy logistic per-token accuracy curve, scored two ways; exact-match threshold shown to move 83% further along the scale axis (x=5.00 to x=9.14) purely from requiring 100 correct steps instead of 1, with the underlying curve unchanged |
+| 01 | [Barren plateaus](barren-plateaus/) | **When does a learning signal go silent?** |
+| 02 | [Double descent](double-descent/) | **Why does one extra feature make the cliff disappear?** |
+| 03 | [Colibri / GLM](colibri-glm/) | **How can a 744B model run from a laptop?** |
+| 04 | [Sorting networks](sorting-network-depth/) | **Why is a classic network still one round too deep?** |
+| 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **Where does the classical chase stop?** |
+| 06 | [Emergence mirage](emergence-mirage/) | **Can the same smooth curve look like a sudden breakthrough?** |
+| 07 | [Matrix multiplication](matmul-omega/) | **How far can Strassen's idea actually take us?** |
 
-Deep, ongoing research graduates to its own repository.
-Earlier standalone experiment: [grokking-silence](https://github.com/abhays02/grokking-silence).
+## The rule
+
+```text
+QUESTION
+   ↓
+RUN
+   ↓
+VERIFY
+   ↓
+SHOW THE EVIDENCE
+   ↓
+SAY WHAT IS STILL UNKNOWN
+```
+
+No experiment gets promoted into a discovery just because the result looks interesting.
+
+## Every experiment has three layers
+
+**1. SEE IT**
+
+A visual explanation first.
+
+**2. MEASURE IT**
+
+A real number, curve, table, or test.
+
+**3. REPRODUCE IT**
+
+Code + raw output + validation notes.
+
+## What the labels mean
+
+| Label | Meaning |
+|---|---|
+| **ESTABLISHED** | Already supported by prior work. |
+| **VERIFIED HERE** | Independently computed in this lab. |
+| **HYPOTHESIS** | An idea that still needs testing. |
+| **NOT CLAIMED** | Deliberately not presented as new. |
+
+## The visual notebook
+
+[Open the research notebook](docs/RESEARCH_NOTEBOOK.md)
+
+It maps the experiments by question, visual idea, measurement, and evidence.
+
+## A few rabbit holes
+
+### Signal → silence
+
+[barren-plateaus](barren-plateaus/) measures how a global cost function can lose gradient signal far faster than a local one.
+
+### The interpolation cliff
+
+[double-descent](double-descent/) walks through the sharp risk spike around the point where a model can exactly fit its training data.
+
+### Same curve, different illusion
+
+[emergence-mirage](emergence-mirage/) shows how an unchanged smooth capability curve can look dramatically more sudden when the metric demands many correct tokens at once.
+
+### One layer too deep
+
+[sorting-network-depth](sorting-network-depth/) builds Batcher's network from scratch and checks it against brute-force 0-1 inputs.
+
+## Run one
+
+Most experiments are deliberately small and dependency-light.
+
+```bash
+cd barren-plateaus
+python barren.py
+```
+
+Then open the experiment's visual artifact and inspect the raw log.
+
+## Why this exists
+
+Not every useful experiment needs to become a paper.
+
+Sometimes the useful outcome is simply:
+
+```text
+"I thought X.
+I ran it.
+X was not quite right.
+Now I know why."
+```
+
+That is still research.
+
+---
+
+**abhays02 / lab**  
+Small experiments · visual explanations · reproducible evidence

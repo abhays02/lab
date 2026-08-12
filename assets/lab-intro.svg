@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Abhays02 Lab: questions become experiments</title>
+  <desc id="desc">An animated visual showing a question moving through measurement and verification into an open question.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#171b2f"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .title{font:700 54px system-ui,-apple-system,Segoe UI,sans-serif;fill:#fff;letter-spacing:-1px}
+      .sub{font:400 23px system-ui,-apple-system,Segoe UI,sans-serif;fill:#aeb8d0}
+      .label{font:650 18px system-ui,-apple-system,Segoe UI,sans-serif;fill:#fff}
+      .small{font:400 15px system-ui,-apple-system,Segoe UI,sans-serif;fill:#8e99b5}
+      .line{stroke:#59637d;stroke-width:3;stroke-linecap:round}
+      .node{fill:#222941;stroke:#7885a8;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#7380a4">
+    <path d="M0 110H1200M0 220H1200M0 330H1200M0 440H1200M0 550H1200"/>
+    <path d="M120 0V630M300 0V630M480 0V630M660 0V630M840 0V630M1020 0V630"/>
+  </g>
+  <text x="72" y="92" class="title">ABHAYS02 / LAB</text>
+  <text x="72" y="132" class="sub">questions → experiments → evidence → better questions</text>
+
+  <g transform="translate(80 220)">
+    <rect width="210" height="112" rx="22" class="node"/>
+    <text x="24" y="43" class="label">QUESTION</text>
+    <text x="24" y="72" class="small">What actually happens?</text>
+    <text x="24" y="94" class="small">No answer assumed.</text>
+  </g>
+  <g transform="translate(340 220)">
+    <rect width="210" height="112" rx="22" class="node"/>
+    <text x="24" y="43" class="label">RUN</text>
+    <text x="24" y="72" class="small">from-scratch code</text>
+    <text x="24" y="94" class="small">raw measurements</text>
+  </g>
+  <g transform="translate(600 220)">
+    <rect width="210" height="112" rx="22" class="node"/>
+    <text x="24" y="43" class="label">VERIFY</text>
+    <text x="24" y="72" class="small">checks + logs</text>
+    <text x="24" y="94" class="small">reproducible evidence</text>
+  </g>
+  <g transform="translate(860 220)">
+    <rect width="250" height="112" rx="22" class="node"/>
+    <text x="24" y="43" class="label">WHAT REMAINS?</text>
+    <text x="24" y="72" class="small">known / verified / open</text>
+    <text x="24" y="94" class="small">the next experiment</text>
+  </g>
+
+  <g class="line">
+    <path d="M290 276H340"/><path d="M550 276H600"/><path d="M810 276H860"/>
+  </g>
+  <circle r="8" fill="#fff" filter="url(#glow)">
+    <animateMotion dur="4.8s" repeatCount="indefinite" path="M290 276 H340 M550 276 H600 M810 276 H860"/>
+  </circle>
+
+  <g transform="translate(80 405)">
+    <text class="small">THE LAB IS NOT A COLLECTION OF CLAIMS.</text>
+    <text y="31" class="label">It is a collection of things we can actually check.</text>
+  </g>
+  <g transform="translate(80 500)">
+    <circle cx="10" cy="0" r="7" fill="#fff"/>
+    <text x="28" y="6" class="small">ESTABLISHED — already known</text>
+    <circle cx="260" cy="0" r="7" fill="#7885a8"/>
+    <text x="278" y="6" class="small">VERIFIED HERE — independently run</text>
+    <circle cx="590" cy="0" r="7" fill="#aeb8d0"/>
+    <text x="608" y="6" class="small">OPEN — still a question</text>
+  </g>
+  <text x="72" y="585" class="small">abhays02/lab · small experiments · raw logs · visual explanations</text>
+</svg>
