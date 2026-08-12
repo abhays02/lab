@@ -2,7 +2,7 @@
 
 ## What is in this repo
 
-Seven experiments. Seven folders. Every one keeps the visual, measurement, code, raw output, and provenance close together.
+Six experiments. Six folders. Every one keeps the visual, measurement, code, raw output, and provenance close together.
 
 | # | Experiment | Visual idea | What the run actually shows |
 |---|---|---|---|
@@ -12,7 +12,6 @@ Seven experiments. Seven folders. Every one keeps the visual, measurement, code,
 | 04 | [Sorting networks](../sorting-network-depth/) | **One layer too deep** | Batcher gives depth `10` at `n = 16`; the proven optimum is `9`. |
 | 05 | [Quantum advantage boundary](../quantum-advantage-boundary/) | **The memory wall** | An exact 53-qubit complex128 statevector needs `144.12 PB`; the RCS checks also reproduce the expected depth trend. |
 | 06 | [Emergence mirage](../emergence-mirage/) | **Same curve, different jump** | The same smooth per-token curve can look much more abrupt when exact-match requires many correct steps. |
-| 07 | [Matrix multiplication](../matmul-omega/) | **Fewer calls, modest clock win** | Leaf-call growth matches `n³` vs `n²·8074`; the measured speedup at `n = 2048` is only about `1.06x`. |
 
 ## The visual language
 
