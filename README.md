@@ -4,77 +4,97 @@
   <img src="assets/lab-hook.svg" alt="I don't start with answers. I start with something worth checking." width="100%" />
 </p>
 
-## The lab
+<p align="center">
+  <img src="assets/lab-map.svg" alt="Visual map of all seven experiments in the lab" width="100%" />
+</p>
 
-Small experiments built to make difficult ideas **visible**.
+## What is in the lab
 
-Not a list of claims.
+Seven small experiments. Each one has its own folder, visual explanation, code, raw output, and provenance.
 
-A trail of questions, runs, measurements, and things that did not quite behave as expected.
+| # | Experiment | What you see first | Status |
+|---|---|---|---|
+| 01 | [Barren plateaus](barren-plateaus/) | **965×** global gradient-variance collapse | reproduction + verified run |
+| 02 | [Double descent](double-descent/) | **238,807 → 32.9** around `p = 100 → 101` | reproduction + verified run |
+| 03 | [Colibri / GLM](colibri-glm/) | **11 GB** cold-token disk reads | arithmetic validation |
+| 04 | [Sorting networks](sorting-network-depth/) | **10 vs 9** rounds at `n = 16` | reproduction + verification |
+| 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **144.12 PB** at 53 qubits | validation + framing |
+| 06 | [Emergence mirage](emergence-mirage/) | **same curve, different jump** | mechanism reproduction |
+| 07 | [Matrix multiplication](matmul-omega/) | **n²·8074** call growth | reproduction + measurement |
 
-## Pick a rabbit hole
+## Open any experiment
 
-| | Experiment | First thing you see |
-|---|---|---|
-| 01 | [Barren plateaus](barren-plateaus/) | **965×** collapse in global gradient variance |
-| 02 | [Double descent](double-descent/) | **238,807 → 32.9** after one extra feature |
-| 03 | [Colibri / GLM](colibri-glm/) | **11 GB** of cold-token disk reads |
-| 04 | [Sorting networks](sorting-network-depth/) | **10 rounds vs 9** at 16 inputs |
-| 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | **144.12 PB** for one 53-qubit statevector |
-| 06 | [Emergence mirage](emergence-mirage/) | **same curve, different “jump”** |
-| 07 | [Matrix multiplication](matmul-omega/) | **n²·8074** vs n³ call growth |
-
-## How to read one
+Every folder follows the same visual path:
 
 ```text
-       SEE
-        │
-        ▼
-     MEASURE
-        │
-        ▼
-      CHECK
-        │
-        ▼
-   WHAT'S LEFT?
+VISUAL
+  ↓
+THE QUESTION
+  ↓
+THE MEASUREMENT
+  ↓
+THE CHECK
+  ↓
+THE CODE + RAW DATA
 ```
 
-Every experiment keeps four things close together:
+The first screen is meant to make the idea understandable before the technical details.
 
-- **Visual** — understand it before reading it.
-- **Measurement** — see the actual number.
-- **Code** — run the experiment yourself.
-- **Provenance** — know what is established and what was verified here.
+## What each folder contains
 
-## The honesty layer
+- `animation.svg` — GitHub-visible visual overview
+- `visual.html` — interactive version when available
+- `frame.*` — poster / figure artifact when available
+- `*.py` — the actual experiment
+- `*.json` — raw output
+- `compute.md` — sources, validation, and claim classification
+- `README.md` — short human explanation
 
-| Label | Means |
+## How to read the labels
+
+| Label | Meaning |
 |---|---|
-| **ESTABLISHED** | Known before this experiment. |
-| **VERIFIED HERE** | Independently computed in this lab. |
-| **HYPOTHESIS** | Still being tested. |
-| **NOT CLAIMED** | Interesting, but not presented as new. |
+| **Established** | Known before this run. |
+| **Verified here** | Independently computed in this repo. |
+| **Hypothesis** | Still being tested. |
+| **Not claimed** | Interesting, but not presented as a new discovery. |
 
-## The visual notebook
+## The research map
 
-[See every experiment as one research map →](docs/RESEARCH_NOTEBOOK.md)
+[Open the notebook](docs/RESEARCH_NOTEBOOK.md)
 
-## The point
+It gives the full experiment-by-experiment view and the provenance rules used across the lab.
 
-Some experiments end with a result.
+## Start with the visual, then go deeper
 
-Some end with a better question.
+**Barren plateaus** — [open](barren-plateaus/)
 
-Both are useful.
+**Double descent** — [open](double-descent/)
+
+**Colibri / GLM** — [open](colibri-glm/)
+
+**Sorting networks** — [open](sorting-network-depth/)
+
+**Quantum advantage boundary** — [open](quantum-advantage-boundary/)
+
+**Emergence mirage** — [open](emergence-mirage/)
+
+**Matrix multiplication** — [open](matmul-omega/)
+
+## The rule
+
+A result is not made more original by making the README sound more confident.
+
+The lab keeps the distinction visible:
 
 ```text
-I thought X.
-        ↓
-I ran it.
-        ↓
-X was not quite right.
-        ↓
-Now I know why.
+KNOWN
+  ↓
+RUN HERE
+  ↓
+VERIFY
+  ↓
+SAY EXACTLY WHAT CHANGED
 ```
 
 [abhays02/lab](https://github.com/abhays02/lab)
