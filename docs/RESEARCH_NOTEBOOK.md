@@ -1,70 +1,60 @@
 # Lab notebook
 
-> A visual index of the experiments in this repository.
->
-> **Epistemic rule:** a reproduced result is not presented as a new scientific finding. Each experiment separates published knowledge from what was independently computed here.
+## What is in this repo
 
-## How to read the lab
+Seven experiments. Seven folders. Every one keeps the visual, measurement, code, raw output, and provenance close together.
+
+| # | Experiment | Visual idea | What the run actually shows |
+|---|---|---|---|
+| 01 | [Barren plateaus](../barren-plateaus/) | **Signal → silence** | Global gradient variance falls from `0.0977` to `0.000101`; local variance falls much less. |
+| 02 | [Double descent](../double-descent/) | **The interpolation cliff** | Test MSE reaches `238,807` at `p = 100`, then drops to `32.9` at `p = 101`. |
+| 03 | [Colibri / GLM](../colibri-glm/) | **A model bigger than the machine** | Published numbers imply only `5.38%` active parameters per token and about `11 GB` of cold-token disk reads. |
+| 04 | [Sorting networks](../sorting-network-depth/) | **One layer too deep** | Batcher gives depth `10` at `n = 16`; the proven optimum is `9`. |
+| 05 | [Quantum advantage boundary](../quantum-advantage-boundary/) | **The memory wall** | An exact 53-qubit complex128 statevector needs `144.12 PB`; the RCS checks also reproduce the expected depth trend. |
+| 06 | [Emergence mirage](../emergence-mirage/) | **Same curve, different jump** | The same smooth per-token curve can look much more abrupt when exact-match requires many correct steps. |
+| 07 | [Matrix multiplication](../matmul-omega/) | **Fewer calls, modest clock win** | Leaf-call growth matches `n³` vs `n²·8074`; the measured speedup at `n = 2048` is only about `1.06x`. |
+
+## The visual language
+
+Every experiment starts with the same four questions:
 
 ```text
-       QUESTION
-          │
-          ▼
-     ┌───────────┐
-     │  RUN IT   │  ← from-scratch code / deterministic logs
-     └─────┬─────┘
-           │
-     ┌─────▼─────┐
-     │ VERIFY IT │  ← correctness checks / raw artifacts
-     └─────┬─────┘
-           │
-       ┌───▼─────────────────┐
-       │ WHAT DO WE ACTUALLY  │
-       │ KNOW FROM THIS RUN?  │
-       └───┬───────────┬──────┘
-           │           │
-     ESTABLISHED     VERIFIED
-       by prior       here
-      literature   in this repo
-           │           │
-           └─────┬─────┘
-                 ▼
-             OPEN QUESTION
+WHAT AM I LOOKING AT?
+        ↓
+WHAT NUMBER DID WE MEASURE?
+        ↓
+HOW DID WE CHECK IT?
+        ↓
+WHERE IS THE CODE?
 ```
 
-## Experiments
+Each folder contains an `animation.svg` for the first answer.
 
-| Experiment | Visual idea | Core observation | Epistemic status |
-|---|---|---|---|
-| [barren-plateaus](../barren-plateaus/) | **Signal → silence** | Global parity gradients collapse much faster than the local observable in the same shallow random-circuit family. | Reproduction + verified run |
-| [double-descent](../double-descent/) | **The interpolation cliff** | Minimum-norm regression reproduces the sharp risk spike at the interpolation threshold and the immediate post-threshold collapse. | Reproduction + verified run |
-| [colibri-glm](../colibri-glm/) | **A model bigger than the machine** | Published GLM/Colibri numbers imply only ~5.4% active parameters per token, while cold-token disk traffic is much slower than rated sequential NVMe throughput. | Arithmetic validation of published claims |
-| [sorting-network-depth](../sorting-network-depth/) | **One layer too deep** | Batcher's construction sorts correctly, but at n=16 it uses depth 10 while the proven optimum is 9. | Reproduction + verification |
-| [quantum-advantage-boundary](../quantum-advantage-boundary/) | **Where does the classical chase stop?** | A from-scratch 14-qubit RCS toy model reaches Porter–Thomas statistics with depth; exact full-statevector storage becomes enormous at real-system width. | Validation / framing, not a new advantage claim |
-| [emergence-mirage](../emergence-mirage/) | **Same curve, different illusion** | A smooth underlying accuracy curve can look like a sudden “emergence” event when exact-match requires many simultaneous correct tokens. | Reproduction of a known metric effect |
-| [grokking-silence](https://github.com/abhays02/grokking-silence) | **Learning after memorization** | Training can reach perfect memorization long before test performance later improves toward the learned rule. | Standalone reproduction |
-
-## What counts as “ours”
-
-The repository contains **our implementation, our runs, our logs, and our visual explanations**. That does not make the underlying phenomenon ours.
-
-Use these labels precisely:
-
-- **ESTABLISHED** — supported by prior literature or a primary source.
-- **VERIFIED HERE** — independently recomputed in this repository.
-- **HYPOTHESIS** — an explicit question or interpretation that remains open.
-- **NOT CLAIMED** — deliberately excluded from the lab's novelty claims.
-
-## Visual language
-
-Each experiment should explain itself in three layers:
-
-1. **Phenomenon:** one image / animation that makes the question intuitive.
-2. **Measurement:** one chart or compact table that shows exactly what was measured.
-3. **Evidence:** the script + raw log + validation notes that make the result reproducible.
-
-Do not use decorative visuals that imply evidence that was not measured.
+Interactive HTML and poster images stay available as deeper layers where they already exist.
 
 ## Provenance
 
-This index is intentionally conservative. It is a map of reproducible experiments, not a claim that every experiment is a new scientific contribution.
+The lab is intentionally conservative.
+
+- **Established** — supported before this run.
+- **Verified here** — independently computed in this repo.
+- **Hypothesis** — an interpretation or next research question.
+- **Not claimed** — deliberately not framed as a new discovery.
+
+The existence of an implementation or a reproduction does not make the underlying phenomenon original.
+
+## Evidence trail
+
+```text
+README
+  ↓
+animation.svg
+  ↓
+experiment code
+  ↓
+raw JSON / figure
+  ↓
+compute.md
+```
+
+That is the whole lab in one path.
