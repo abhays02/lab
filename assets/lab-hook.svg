@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" role="img" aria-labelledby="t d">
+<title id="t">ABHAYS02 LAB — the question is the product</title>
+<desc id="d">Animated research questions move through experiments into measured results.</desc>
+<defs>
+  <radialGradient id="bg"><stop offset="0" stop-color="#20263a"/><stop offset="1" stop-color="#080a10"/></radialGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="12"/></filter>
+  <style>
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .sans{font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+  </style>
+</defs>
+<rect width="1400" height="720" fill="url(#bg)"/>
+<circle cx="1130" cy="110" r="170" fill="#6f7cff" opacity=".08" filter="url(#blur)"/>
+<circle cx="280" cy="610" r="190" fill="#ff6a3d" opacity=".06" filter="url(#blur)"/>
+<g opacity=".10" stroke="#aeb8d0">
+  <path d="M0 120H1400M0 240H1400M0 360H1400M0 480H1400M0 600H1400"/>
+  <path d="M120 0V720M320 0V720M520 0V720M720 0V720M920 0V720M1120 0V720M1320 0V720"/>
+</g>
+<text x="72" y="72" class="mono" font-size="17" letter-spacing="4" fill="#8f9ab5">ABHAYS02 / LAB / 2026</text>
+<text x="72" y="176" class="sans" font-size="78" font-weight="800" fill="#fff" letter-spacing="-3">I DON'T START WITH</text>
+<text x="72" y="266" class="sans" font-size="92" font-weight="800" fill="#fff" letter-spacing="-4">ANSWERS.</text>
+<text x="72" y="326" class="sans" font-size="28" fill="#aeb8d0">I start with something worth checking.</text>
+
+<g transform="translate(72 405)">
+  <rect width="1256" height="188" rx="30" fill="#111521" stroke="#394158"/>
+  <text x="34" y="45" class="mono" font-size="15" letter-spacing="3" fill="#7f8aa6">QUESTION / LIVE</text>
+  <text x="34" y="105" class="sans" font-size="34" font-weight="650" fill="#fff">
+    <tspan>When does a learning signal </tspan>
+    <tspan fill="#ff6a3d">go silent?</tspan>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.35;.40;.75;1" dur="8s" repeatCount="indefinite"/>
+  </text>
+  <text x="34" y="105" class="sans" font-size="34" font-weight="650" fill="#fff" opacity="0">
+    <tspan>Can one smooth curve </tspan>
+    <tspan fill="#ff6a3d">fake a breakthrough?</tspan>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.35;.40;.75;1" dur="8s" repeatCount="indefinite"/>
+  </text>
+  <text x="34" y="105" class="sans" font-size="34" font-weight="650" fill="#fff" opacity="0">
+    <tspan>Where does the classical </tspan>
+    <tspan fill="#ff6a3d">chase stop?</tspan>
+    <animate attributeName="opacity" values="0;0;0;1;0" keyTimes="0;.35;.40;.75;1" dur="8s" repeatCount="indefinite"/>
+  </text>
+  <g transform="translate(34 142)">
+    <rect width="270" height="7" rx="4" fill="#394158"/>
+    <rect width="90" height="7" rx="4" fill="#fff">
+      <animate attributeName="x" values="0;180;0" dur="8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="1060" y="150" class="mono" font-size="15" fill="#7f8aa6">RUN → VERIFY → SHOW</text>
+</g>
+<text x="72" y="662" class="mono" font-size="15" fill="#7f8aa6">small experiments · real runs · raw evidence · open questions</text>
+</svg>
