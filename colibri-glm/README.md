@@ -4,46 +4,86 @@
   <img src="animation.svg" alt="A 744B model streaming experts from storage" width="100%" />
 </p>
 
-> **A 744B model. 25GB of RAM. About 11GB of disk reads for one cold token.**
+## 01. The question
 
-| Measure | Value |
-|---|---:|
-| Total parameters | 744B |
-| Active per token | 40B |
-| Active fraction | 5.38% |
-| Routed experts | 19,456 |
-| Implied experts per layer | ~7.9 |
-| Published cold-cache speed | 0.05–0.1 tok/s |
-
-## What you are seeing
+> **How can a model with 744B parameters operate when only a small fraction is active for each token?**
 
 ```text
-744B total
-   ↓
-40B active
-   ↓
-5.38% used per token
-   ↓
-experts stream from storage
-   ↓
+744B total parameters
+        │
+        ▼
+40B active / token
+        │
+        ▼
+  5.38% active
+        │
+        ▼
+experts loaded on demand
+        │
+        ▼
 ~11GB cold-token reads
 ```
 
-## What I checked
+## 02. The numbers
 
-- Arithmetic consistency of the published architecture numbers
-- Implied active-expert count
-- Implied effective read throughput
-- Difference from rated sequential NVMe throughput
+| Quantity | Value |
+|---|---:|
+| Total parameters | **744B** |
+| Active per token | **40B** |
+| Active fraction | **5.38%** |
+| Routed experts | **19,456** |
+| Implied experts / layer | **~7.9** |
+| Published cold-cache speed | **0.05–0.1 tok/s** |
+| Implied read throughput | **0.55–1.1 GB/s** |
 
-The last item is an engineering question, not a diagnosis.
+## 03. What I checked
 
-## Important boundary
+```text
+published architecture
+        ↓
+active fraction
+        ↓
+experts used / layer
+        ↓
+bytes moved / token
+        ↓
+implied storage throughput
+```
 
-This lab did not benchmark the 372GB model itself. The project facts come from the published Colibri material; the calculations here are independent checks.
+The arithmetic is internally consistent with the published architecture numbers.
 
-## Go deeper
+## 04. What does the result mean?
 
-[Open the original visual](frame.html) · [Run the calculation](colibri_math.py) · [Read the evidence](compute.md) · [Inspect output](colibri_math.json)
+The interesting constraint is not just parameter count.
+
+It is **how much of the model must move through storage for each token**.
+
+The implied read rate is about **3.2–12.7× below** common rated sequential NVMe throughput.
+
+That is an engineering question.
+
+It is **not** a diagnosis of the implementation.
+
+## 05. Boundary of this experiment
+
+| Source | What it provides |
+|---|---|
+| Published Colibri / GLM material | Architecture and reported performance |
+| This lab | Independent arithmetic checks |
+| Not done here | A benchmark of the full 372GB model |
+
+## 06. Evidence path
+
+```text
+ARCHITECTURE
+    ↓
+CALCULATIONS
+    ↓
+colibri_math.json
+    ↓
+compute.md
+```
+
+[Visual explainer](frame.html) · [Calculation](colibri_math.py) · [Output](colibri_math.json) · [Evidence](compute.md)
 
 [Back to the lab](../)
