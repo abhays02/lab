@@ -62,3 +62,4 @@ print(json.dumps(results, indent=2))
 
 with open("colibri_math.json", "w") as f:
     json.dump(results, f, indent=2)
+    f.write("\n")

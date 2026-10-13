@@ -1,4 +1,5 @@
 import itertools, json
+from pathlib import Path
 
 def bitonic_sort_network(n):
     """Batcher's bitonic sorting network comparators for n = power of 2.
@@ -67,5 +68,5 @@ for k in range(1, 8):  # n = 2,4,8,...,128
     results[n] = entry
     print(n, entry)
 
-with open("/tmp/claude-0/-home-user/489beb8e-2881-5a06-bb86-a25a3cd421e3/scratchpad/work/sortnet/results.json", "w") as f:
+with Path(__file__).with_name("batcher_results.json").open("w") as f:
     json.dump(results, f, indent=2)

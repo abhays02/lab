@@ -1,8 +1,10 @@
 # Emergence mirage
 
 <p align="center">
-  <img src="animation.svg" alt="A smooth underlying curve can look like different emergence transitions" width="100%" />
+  <img src="animation.gif" alt="Computed exact-match threshold points shift right as the required number of correct steps increases." width="100%" />
 </p>
+
+<p align="center"><em>Synthetic logistic calculation, not trained-model data.</em> · <a href="visual.svg">Static SVG fallback</a></p>
 
 ## 01. The question
 
@@ -81,5 +83,11 @@ compute.md
 ```
 
 [Visual](visual.svg) · [Experiment](emergence_mirage.py) · [Results](emergence_results.json) · [Evidence](compute.md)
+
+## Reproduce
+
+Requires Python 3.10+ and NumPy. From this folder, run
+`python3 emergence_mirage.py` to print the deterministic calculation. The
+checked-in `emergence_results.json` contains its reported threshold values.
 
 [Back to the lab](../)

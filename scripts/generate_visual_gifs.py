@@ -220,19 +220,15 @@ def quantum_frames():
             "Complex128 bytes from committed exact-arithmetic table; y-axis is log scale",
         )
         axes(draw, "qubits", "bytes")
-        points = []
         for row in rows[:count]:
             x = 86 + (row["qubits"] - min_x) / (max_x - min_x) * 570
             y = 145 + (max_y - math.log10(row["bytes_exact"])) / (max_y - min_y) * 145
-            points.append((x, y))
             color = ORANGE if row["qubits"] == 53 else BLUE
             radius = 6 if row["qubits"] == 53 else 4
             draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=color)
             if row["qubits"] in (10, 53, 60):
                 draw.text((x - 18, y - 20), f"{row['qubits']}q", fill=color,
                           font=ImageFont.load_default(size=12))
-        if len(points) > 1:
-            draw.line(points, fill="#657083", width=2)
         target = next((row for row in rows if row["qubits"] == 53), None)
         footer(draw, f"53 qubits: {target['human']}; exact storage arithmetic, not a 53-qubit simulation.")
         frames.append(image)
@@ -252,16 +248,12 @@ def emergence_frames():
             "One fixed synthetic logistic curve; only the exact-match length k changes",
         )
         axes(draw, "required correct steps k", "scale x at 50% exact match")
-        points = []
         for row in rows[:count]:
             x = 86 + (row["k"] - min_x) / (max_x - min_x) * 570
             y = 285 - (row["x_where_exact_match_crosses_50pct"] - min_y) / (max_y - min_y) * 125
-            points.append((x, y))
             draw.ellipse((x - 5, y - 5, x + 5, y + 5), fill=GREEN)
-            draw.text((x - 8, 290, x + 33, 309), f"k={row['k']}",
+            draw.text((x - 8, 290), f"k={row['k']}",
                       fill=MUTED, font=ImageFont.load_default(size=11))
-        if len(points) > 1:
-            draw.line(points, fill=GREEN, width=2)
         latest = rows[count - 1]
         accuracy = latest["per_token_acc_needed_for_50pct_exact_match"] * 100
         footer(draw, f"k={latest['k']}: {accuracy:.2f}% token accuracy; synthetic math, not trained-model data.")

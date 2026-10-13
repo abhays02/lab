@@ -1,8 +1,10 @@
 # Barren plateaus
 
 <p align="center">
-  <img src="animation.svg" alt="Global gradient variance collapses as qubits increase" width="100%" />
+  <img src="animation.gif" alt="Animation revealing the six recorded local and global gradient-variance values as qubit count increases." width="100%" />
 </p>
+
+<p align="center"><em>Markers are recorded values; connecting lines are visual guides.</em> · <a href="animation.svg">Static SVG fallback</a></p>
 
 ## 01. The question
 
@@ -81,5 +83,10 @@ PROVENANCE
 ```
 
 [Interactive visual](visual.html) · [Code](barren.py) · [Raw log](barren_log.json) · [Evidence](compute.md)
+
+## Reproduce
+
+Requires Python 3.10+ and NumPy. From this folder, run
+`python3 barren.py`; it regenerates `barren_log.json`.
 
 [Back to the lab](../)
