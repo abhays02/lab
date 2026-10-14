@@ -1,8 +1,10 @@
 # Colibri / GLM
 
 <p align="center">
-  <img src="animation.svg" alt="A 744B model streaming experts from storage" width="100%" />
+  <img src="animation.gif" alt="Schematic animation of published GLM architecture and arithmetic-derived expert-read estimates; no model is run." width="100%" />
 </p>
+
+<p align="center"><em>Arithmetic from published inputs, not a full-model benchmark.</em> · <a href="animation.svg">Static SVG fallback</a></p>
 
 ## 01. The question
 
@@ -36,7 +38,7 @@ experts loaded on demand
 | Published cold-cache speed | **0.05–0.1 tok/s** |
 | Implied read throughput | **0.55–1.1 GB/s** |
 
-## 03. What I checked
+## 03. What this arithmetic checks
 
 ```text
 published architecture
@@ -50,7 +52,8 @@ bytes moved / token
 implied storage throughput
 ```
 
-The arithmetic is internally consistent with the published architecture numbers.
+The arithmetic is internally consistent with the published architecture
+numbers. This repository does not run or benchmark the 372 GB model.
 
 ## 04. What does the result mean?
 
@@ -85,5 +88,10 @@ compute.md
 ```
 
 [Visual explainer](frame.html) · [Calculation](colibri_math.py) · [Output](colibri_math.json) · [Evidence](compute.md)
+
+## Reproduce
+
+Requires Python 3.10+; no third-party packages are needed. From this folder,
+run `python3 colibri_math.py` to print and regenerate `colibri_math.json`.
 
 [Back to the lab](../)

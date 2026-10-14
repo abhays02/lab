@@ -1,8 +1,10 @@
 # Double descent
 
 <p align="center">
-  <img src="animation.svg" alt="Test error spikes at the interpolation threshold" width="100%" />
+  <img src="animation.gif" alt="Recorded test-MSE sweep points show a spike at 100 features and a lower value at 101." width="100%" />
 </p>
+
+<p align="center"><em>Each marker is a recorded sweep result; no intermediate values are added.</em> · <a href="frame.png">Static image fallback</a></p>
 
 ## 01. The question
 
@@ -78,5 +80,11 @@ NUMBERS → SHAPE → MECHANISM → REPRODUCTION
 ## 07. Evidence path
 
 [Animated visual](visual.html) · [Code](double_descent.py) · [Raw log](double_descent_log.json) · [Evidence](compute.md)
+
+## Reproduce
+
+Requires Python 3.10+ and NumPy. From this folder, run
+`python3 double_descent.py`; the full 24-point, 30-trial sweep regenerates
+`double_descent_log.json` and may take several minutes.
 
 [Back to the lab](../)

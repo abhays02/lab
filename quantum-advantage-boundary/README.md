@@ -1,8 +1,10 @@
 # Quantum advantage boundary
 
 <p align="center">
-  <img src="animation.svg" alt="Exact statevector memory grows from kilobytes to exabytes" width="100%" />
+  <img src="animation.gif" alt="Exact complex128 statevector storage values grow with qubit count; 53 qubits require 144.12 PB." width="100%" />
 </p>
+
+<p align="center"><em>Memory values are exact arithmetic, not a 53-qubit simulation.</em> · <a href="visual.svg">Static SVG fallback</a></p>
 
 ## 01. The question
 
@@ -77,5 +79,11 @@ The experiment explains the simulation boundary. It does not prove where the ult
 ## 07. Evidence path
 
 [Visual](visual.svg) · [Verifier](rcs_verify.py) · [Raw results](rcs_results.json) · [Evidence](compute.md)
+
+## Reproduce
+
+Requires Python 3.10+ and NumPy. From this folder, run
+`python3 rcs_verify.py`; it regenerates `rcs_results.json`. The 53-qubit
+memory figure is exact storage arithmetic, not a full-state simulation.
 
 [Back to the lab](../)
