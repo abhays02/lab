@@ -1,10 +1,14 @@
 # Double descent
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#double-descent) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** test MSE drops from **238,807 to 32.9** between 100 and 101 features in this sweep.
+
 <p align="center">
-  <img src="animation.gif" alt="Recorded test-MSE sweep points show a spike at 100 features and a lower value at 101." width="100%" />
+  <img src="evidence-still.png" alt="Recorded test-MSE sweep points show a spike at 100 features and a lower value at 101." width="100%" />
 </p>
 
-<p align="center"><em>Each marker is a recorded sweep result; no intermediate values are added.</em> · <a href="frame.png">Static image fallback</a></p>
+<p align="center"><em>Each marker is a recorded sweep result; no intermediate values are added.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 
