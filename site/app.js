@@ -195,8 +195,12 @@
       item.setAttribute("aria-pressed", String(item === button));
     });
     const visible = experiments.filter(e => filter === "all" || e.category === filter);
-    if (!visible.includes(selected)) select(visible[0]);
-    else renderList();
+    if (!visible.includes(selected)) {
+      select(visible[0]);
+      if (!["#experiments", "#approach"].includes(location.hash)) {
+        history.replaceState(null, "", `#${selected.id}`);
+      }
+    } else renderList();
   }));
   document.querySelectorAll("[data-step]").forEach(tab => {
     tab.addEventListener("click", () => renderStep(Number(tab.dataset.step)));
