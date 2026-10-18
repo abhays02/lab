@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <meta name="description" content="Six computational experiments, explored through questions, visual results, and reproducible evidence. An independent research notebook by abhays02.">
+  <title>LAB — A question worth checking.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23101713'/%3E%3Ctext x='20' y='30' text-anchor='middle' font-size='32' fill='%23d5f595'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#experiments">Skip to experiments</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="LAB home"><span class="logo-mark" aria-hidden="true">✳</span> LAB<span class="wordmark-slash"> / </span><span class="author">ABHAYS02</span></a>
+    <nav aria-label="Main navigation"><a href="#experiments">Experiments <span>06</span></a><a href="#approach">The approach</a><a class="repo-link" href="https://github.com/abhays02/lab">Repository ↗</a></nav>
+    <button id="motion-toggle" class="motion-toggle" aria-pressed="false"><span aria-hidden="true">Ⅱ</span> Pause motion</button>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> INDEPENDENT COMPUTATIONAL EXPLORATIONS</p>
+        <h1 id="hero-title">A question<br>worth <em>checking.</em></h1>
+        <p class="hero-description">Between an interesting idea and a convincing answer,<br class="desktop-break"> there’s an experiment. This is where I keep mine.</p>
+        <a class="primary-link" href="#experiments">Enter the experiments <span aria-hidden="true">↗</span></a>
+        <div class="hero-footnote"><span>06 EXPERIMENTS</span><span>OPEN CODE. VISIBLE EVIDENCE.</span></div>
+      </div>
+      <div class="orbital-scene" aria-hidden="true">
+        <div class="scene-coordinate top-coordinate">FIG. 001 / THE SPACE OF QUESTIONS</div>
+        <div class="orbit-field"><div class="orbital-sphere"><div class="sphere-grid"></div><div class="sphere-core"></div><i class="orbit orbit-one"></i><i class="orbit orbit-two"></i><i class="orbit orbit-three"></i><i class="orbit orbit-four"></i><i class="orbit orbit-five"></i><i class="orbit orbit-six"></i><span class="satellite satellite-one"></span><span class="satellite satellite-two"></span><span class="satellite satellite-three"></span></div></div>
+        <span class="orbit-label label-one">01 / QUANTUM</span><span class="orbit-label label-two">03 / SYSTEMS</span><span class="orbit-label label-three">06 / PERCEPTION</span>
+        <div class="scene-coordinate bottom-coordinate"><span>IDEA → EXPERIMENT → EVIDENCE</span><span>↙ EXPLORE BELOW</span></div>
+      </div>
+    </section>
+    <section id="experiments" class="experiments section-shell" aria-labelledby="experiments-title">
+      <div class="section-heading"><div><p class="eyebrow">THE RESEARCH INDEX / 01—06</p><h2 id="experiments-title">Follow the <em>surprise.</em></h2></div><p>Choose a question. See what was run.<br>Trace the result back to its evidence.</p></div>
+      <div class="filter-row"><div class="filters" role="group" aria-label="Filter experiments"><button class="filter active" data-filter="all" aria-pressed="true">All experiments <span>06</span></button><button class="filter" data-filter="quantum" aria-pressed="false">Quantum</button><button class="filter" data-filter="learning" aria-pressed="false">Learning</button><button class="filter" data-filter="systems" aria-pressed="false">Systems</button></div><span id="result-count" class="index-note" role="status">6 experiments</span></div>
+      <div class="explorer">
+        <div id="experiment-list" class="experiment-list" role="group" aria-label="Choose an experiment"></div>
+        <article id="experiment-detail" class="experiment-detail" aria-labelledby="detail-title">
+          <div class="detail-topline"><span id="detail-category"></span><span id="detail-index"></span></div>
+          <h3 id="detail-title"></h3><p id="detail-question" class="detail-question"></p>
+          <div class="result-callout"><strong id="detail-stat"></strong><span id="detail-stat-label"></span></div>
+          <figure class="visual-figure"><div class="visual-header"><span id="visual-title">OBSERVATION / STATIC VIEW</span><button id="play-toggle" class="play-toggle" aria-pressed="false">▷ Play animation</button></div><img id="static-visual" class="evidence-still" alt="" width="720" height="405"><img id="animated-visual" class="animated-visual" alt="" width="720" height="405" hidden><figcaption id="visual-caption"></figcaption></figure>
+          <div class="walkthrough" aria-label="Experiment walkthrough"><div class="step-tabs" role="tablist" aria-label="Follow the experiment"><button id="tab-question" role="tab" aria-selected="true" aria-controls="step-panel" data-step="0">01 <span>Question</span></button><button id="tab-method" role="tab" aria-selected="false" aria-controls="step-panel" tabindex="-1" data-step="1">02 <span>Method</span></button><button id="tab-finding" role="tab" aria-selected="false" aria-controls="step-panel" tabindex="-1" data-step="2">03 <span>Finding</span></button></div><div id="step-panel" role="tabpanel" aria-labelledby="tab-question" tabindex="0"></div></div>
+          <div class="claim-boundary"><span class="small-label">THE BOUNDARY OF THE CLAIM</span><p id="detail-boundary"></p></div>
+          <div class="evidence"><div class="evidence-heading"><h4>Don’t take the visual’s word for it.</h4><span>FOLLOW THE EVIDENCE ↘</span></div><div id="evidence-links" class="evidence-links"></div></div>
+        </article>
+      </div>
+      <p id="selection-status" class="sr-only" role="status" aria-live="polite"></p>
+      <noscript><p>This explorer needs JavaScript to switch experiments. All six questions, results, and evidence are available in the <a href="https://github.com/abhays02/lab#choose-a-question">repository research index</a>.</p></noscript>
+    </section>
+    <section id="approach" class="approach section-shell" aria-labelledby="approach-title"><div><p class="eyebrow">A SMALL LAB. A CONSISTENT RULE.</p><h2 id="approach-title">Show the result.<br><em>Keep the receipts.</em></h2><p>These are independent checks and explorations of established ideas. Not every striking number is a benchmark. Not every surprising curve is a discovery.</p><a class="text-link" href="https://github.com/abhays02/lab/blob/main/docs/RESEARCH_NOTEBOOK.md">Read the research notebook ↗</a></div><div class="principles"><div><span>01</span><section><h3>Established</h3><p>What prior work already tells us. The starting point, not a new claim.</p></section></div><div><span>02</span><section><h3>Verified here</h3><p>What the code actually computed, with raw outputs you can inspect.</p></section></div><div><span>03</span><section><h3>Not claimed</h3><p>The limits of the result. An honest boundary is part of the evidence.</p></section></div></div></section>
+  </main>
+  <footer class="section-shell"><a class="wordmark" href="#">✳ LAB / ABHAYS02</a><p>Curiosity, with a paper trail.</p><a class="windows-download" href="https://github.com/abhays02/lab/releases">Download for Windows ↗</a><a href="https://github.com/abhays02/lab">Explore the source ↗</a></footer>
+</body>
+</html>
