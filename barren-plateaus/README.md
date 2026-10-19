@@ -1,10 +1,14 @@
 # Barren plateaus
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#barren-plateaus) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** global gradient variance falls **965×**; the local objective retains a stronger signal in this run.
+
 <p align="center">
-  <img src="animation.gif" alt="Animation revealing the six recorded local and global gradient-variance values as qubit count increases." width="100%" />
+  <img src="evidence-still.png" alt="Six recorded local and global gradient-variance values as qubit count increases." width="100%" />
 </p>
 
-<p align="center"><em>Markers are recorded values; connecting lines are visual guides.</em> · <a href="animation.svg">Static SVG fallback</a></p>
+<p align="center"><em>Markers are recorded values; connecting lines are visual guides.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 

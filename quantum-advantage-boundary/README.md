@@ -1,10 +1,14 @@
 # Quantum advantage boundary
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#quantum-advantage-boundary) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** a 53-qubit complex128 statevector needs **144.12 PB** by exact arithmetic; the actual simulation here uses **14 qubits**.
+
 <p align="center">
-  <img src="animation.gif" alt="Exact complex128 statevector storage values grow with qubit count; 53 qubits require 144.12 PB." width="100%" />
+  <img src="evidence-still.png" alt="Exact complex128 statevector storage values grow with qubit count; 53 qubits require 144.12 PB." width="100%" />
 </p>
 
-<p align="center"><em>Memory values are exact arithmetic, not a 53-qubit simulation.</em> · <a href="visual.svg">Static SVG fallback</a></p>
+<p align="center"><em>Memory values are exact arithmetic, not a 53-qubit simulation.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 

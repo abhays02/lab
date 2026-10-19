@@ -1,12 +1,21 @@
 # ABHAYS02 / LAB
 
+**Six questions. Visible results. Reproducible evidence.**
+
+[**Enter the interactive lab →**](https://abhays02.github.io/lab/) ·
+[Research notebook](docs/RESEARCH_NOTEBOOK.md) ·
+[Windows downloads](https://github.com/abhays02/lab/releases)
+
 <p align="center">
-  <img src="assets/lab-hook.svg" alt="I don't start with answers. I start with something worth checking." width="100%" />
+  <a href="https://abhays02.github.io/lab/"><img src="assets/lab-map.svg" alt="Six experiments: gradient collapse, double descent, sparse model arithmetic, sorting depth, quantum memory, and metric-driven emergence." width="100%" /></a>
 </p>
 
-## The lab in one screen
+The website is the visual front door: explore a 3D-style research atlas, choose
+an experiment, step through its workflow, and play or pause its explainer.
+GitHub READMEs stay lightweight and readable—GitHub does not run interactive
+JavaScript or 3D scenes inside Markdown.
 
-Six experiments. Six different questions. One rule: **make the result easy to see before asking anyone to read the code.**
+## Choose a question
 
 | # | Experiment | The question | The result |
 |---|---|---|---|
@@ -17,72 +26,17 @@ Six experiments. Six different questions. One rule: **make the result easy to se
 | 05 | [Quantum advantage boundary](quantum-advantage-boundary/) | Why does exact simulation hit a memory wall? | **144.12 PB** at 53 qubits |
 | 06 | [Emergence mirage](emergence-mirage/) | Can a metric make a smooth curve look like a jump? | **Same curve, much sharper story** |
 
-## What happens inside a folder?
+## Follow the evidence
 
-```text
-           QUESTION
-               ↓
-        WHAT DID WE RUN?
-               ↓
-          WHAT CAME OUT?
-               ↓
-       WHY SHOULD I CARE?
-               ↓
-     WHAT IS ACTUALLY VERIFIED?
-               ↓
-       CODE + RAW EVIDENCE
-```
-
-Every experiment README answers those questions directly.
-
-## What the visuals are for
-
-The visual is not decoration.
-
-It should let you understand:
-
-```text
-WHAT IS MOVING?
-WHAT IS BEING COMPARED?
-WHERE IS THE SURPRISE?
-WHAT NUMBER PROVES IT?
-```
-
-Then the reader can choose how deep to go.
-
-## Evidence language
+**Question → visual → result → code → raw output → provenance.**
+Each experiment README is the detailed guide; the notebook is the shared
+index, not another copy of every guide.
 
 | Label | Meaning |
 |---|---|
 | **Established** | Known before this run. |
 | **Verified here** | Independently computed in this repo. |
 | **Not claimed** | Not presented as a new scientific discovery. |
-
-## One consistent evidence trail
-
-<p align="center">
-  <img src="assets/evidence-workflow.gif" alt="Schematic workflow: a question leads to an experiment script, its raw JSON output, and provenance notes." width="100%" />
-</p>
-
-<p align="center"><em>Schematic only; it contains no experimental data.</em> · <a href="assets/evidence-workflow.svg">Static SVG fallback</a></p>
-
-## The six experiments
-
-**Barren plateaus** — [see the signal collapse](barren-plateaus/)
-
-**Double descent** — [see the interpolation spike](double-descent/)
-
-**Colibri / GLM** — [see the storage bottleneck](colibri-glm/)
-
-**Sorting networks** — [see the depth gap](sorting-network-depth/)
-
-**Quantum advantage boundary** — [see the memory wall](quantum-advantage-boundary/)
-
-**Emergence mirage** — [see how the metric changes the story](emergence-mirage/)
-
-## The research map
-
-[Open the experiment notebook](docs/RESEARCH_NOTEBOOK.md)
 
 ## Reproduce a run
 
@@ -108,18 +62,34 @@ their evidence. Scripts that write JSON replace that folder's result file.
 The Colibri script checks arithmetic against published inputs; it does not
 run or benchmark the 372 GB model.
 
-The checked-in GIFs can be regenerated from the committed JSON artifacts:
+The checked-in GIFs and their motion-free final-frame previews can be
+regenerated from the committed JSON artifacts:
 
 ```bash
 python3 -m pip install -r requirements-visuals.txt
 python3 scripts/generate_visual_gifs.py
 ```
 
-## Follow-up
+## Website and Windows
 
-The optional `colibri-glm/colibri-meme.hyperframes.html` visual expects
-`node_modules/gsap/dist/gsap.min.js`, but the repository has no package
-manifest to install it. The README links to the available calculation and
-static/animated explainers instead.
+Preview the dependency-free website locally:
 
-[abhays02/lab](https://github.com/abhays02/lab)
+```bash
+python3 scripts/build_site.py
+python3 scripts/desktop.py
+```
+
+The launcher serves only the assembled public site on a loopback address and
+opens your browser. Keep its terminal open; press Ctrl+C to stop.
+
+- **Pages:** the independent [publishing workflow](.github/workflows/docs.yml)
+  deploys after changes reach `main`; select **GitHub Actions** in repository
+  **Settings → Pages** first.
+- **Windows:** the [Windows workflow](.github/workflows/windows-release.yml)
+  builds and smoke-tests an offline `Lab-Explorer.exe`. Run it manually for an
+  artifact, or push a `v*` tag for a GitHub Release with SHA-256 checksums.
+- **Setup:** [publishing, custom domain, and release instructions](docs/RESEARCH_NOTEBOOK.md#publishing-and-distribution).
+
+The Windows app explores bundled results; it does not run the experiments or
+install a model. It is unsigned, so Windows may show a SmartScreen warning.
+Downloads become available only after a successful Windows workflow.

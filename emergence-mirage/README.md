@@ -1,10 +1,14 @@
 # Emergence mirage
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#emergence-mirage) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** requiring more correct steps makes the same smooth synthetic capability curve look like a sharper jump.
+
 <p align="center">
-  <img src="animation.gif" alt="Computed exact-match threshold points shift right as the required number of correct steps increases." width="100%" />
+  <img src="evidence-still.png" alt="Computed exact-match threshold points shift right as the required number of correct steps increases." width="100%" />
 </p>
 
-<p align="center"><em>Synthetic logistic calculation, not trained-model data.</em> · <a href="visual.svg">Static SVG fallback</a></p>
+<p align="center"><em>Synthetic logistic calculation, not trained-model data.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 

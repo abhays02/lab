@@ -1,10 +1,14 @@
 # Sorting network depth
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#sorting-network-depth) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** Batcher sorts all **65,536** binary inputs at `n=16`, but takes **10 rounds** versus the established optimum of **9**.
+
 <p align="center">
-  <img src="animation.gif" alt="Schematic ten-round depth count for Batcher at 16 inputs, compared with the proven nine-round optimum." width="100%" />
+  <img src="evidence-still.png" alt="Schematic ten-round depth count for Batcher at 16 inputs, compared with the proven nine-round optimum." width="100%" />
 </p>
 
-<p align="center"><em>Round blocks show depth only, not the comparator layout.</em> · <a href="frame.png">Static image fallback</a></p>
+<p align="center"><em>Round blocks show depth only, not the comparator layout.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 

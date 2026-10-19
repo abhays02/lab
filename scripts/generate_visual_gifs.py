@@ -53,6 +53,7 @@ def progressive_counts(total, frame_count=9):
 def save_gif(name, frames):
     output = ROOT / name
     output.parent.mkdir(parents=True, exist_ok=True)
+    frames[-1].save(output.with_name("evidence-still.png"))
     indexed = [frame.quantize(colors=128, method=Image.Quantize.MEDIANCUT)
                for frame in frames]
     indexed[0].save(

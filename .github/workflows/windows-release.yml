@@ -1,0 +1,62 @@
+name: Build Windows explorer
+
+on:
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'scripts/build_site.py'
+      - 'scripts/desktop.py'
+      - '.github/workflows/windows-release.yml'
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.6.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pyinstaller==6.16.0
+      - run: python scripts/build_site.py
+      - name: Package offline Windows executable
+        run: python -m PyInstaller --clean --noconfirm --onefile --console --name Lab-Explorer --add-data "dist/site:site" scripts/desktop.py
+      - name: Test Windows executable
+        shell: pwsh
+        run: |
+          & .\dist\Lab-Explorer.exe --smoke-test
+          if ($LASTEXITCODE -ne 0) { throw "Executable smoke test failed" }
+          $hash = (Get-FileHash .\dist\Lab-Explorer.exe -Algorithm SHA256).Hash.ToLower()
+          "$hash  Lab-Explorer.exe" | Set-Content -Encoding ascii .\dist\SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Lab-Explorer-windows-x64
+          path: |
+            dist/Lab-Explorer.exe
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: windows
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - name: Publish tested executable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GH_RUN_ID: ${{ github.run_id }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh run download "$GH_RUN_ID" --name Lab-Explorer-windows-x64 --dir release
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --verify-tag --title "Lab Explorer $RELEASE_TAG" --notes "Offline Windows x64 research explorer. Download Lab-Explorer.exe and SHA256SUMS.txt. Unsigned executable; see repository documentation for verification and usage."
+          fi
+          gh release upload "$RELEASE_TAG" release/Lab-Explorer.exe release/SHA256SUMS.txt --clobber

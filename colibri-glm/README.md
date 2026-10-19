@@ -1,10 +1,14 @@
 # Colibri / GLM
 
+[← Lab overview](../README.md) · [Interactive explorer ↗](https://abhays02.github.io/lab/#colibri-glm) · [Research notebook](../docs/RESEARCH_NOTEBOOK.md)
+
+**At a glance:** **5.38%** active parameters and approximately **11 GB** implied cold-token reads, calculated from published inputs—not benchmarked here.
+
 <p align="center">
-  <img src="animation.gif" alt="Schematic animation of published GLM architecture and arithmetic-derived expert-read estimates; no model is run." width="100%" />
+  <img src="evidence-still.png" alt="Published GLM architecture and arithmetic-derived expert-read estimates; no model is run." width="100%" />
 </p>
 
-<p align="center"><em>Arithmetic from published inputs, not a full-model benchmark.</em> · <a href="animation.svg">Static SVG fallback</a></p>
+<p align="center"><em>Arithmetic from published inputs, not a full-model benchmark.</em> · <a href="animation.gif">Animated version</a> · Play/pause in the interactive explorer.</p>
 
 ## 01. The question
 
